@@ -100,7 +100,7 @@ nav li {
     position: relative;
 }
 
-nav a, nav a:visited {
+nav a:link, nav a:visited {
     color: #FFF;
     display: block;
     line-height: 2em;
