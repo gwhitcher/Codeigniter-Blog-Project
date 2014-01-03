@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2014 at 08:47 PM
+-- Generation Time: Jan 03, 2014 at 10:53 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -32,8 +32,17 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `title` text NOT NULL,
   `slug` text NOT NULL,
   `body` text NOT NULL,
+  `featured` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `category_id`, `title`, `slug`, `body`, `featured`) VALUES
+(1, 1, 'This is a test post', 'this-is-a-test-post', 'This is the body text. This is the body text. This is the body text. This is the body text. This is the body text. This is the body text. This is the body text. This is the body text. This is the body text. This is the body text. This is the body text. ', 'cover.png'),
+(2, 2, 'Another Test Post', 'another-test-post', 'This is some body text. This is some body text. This is some body text. This is some body text. This is some body text. This is some body text. This is some body text. This is some body text. This is some body text. ', 'cover1.png');
 
 -- --------------------------------------------------------
 
@@ -48,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
 
 --
 -- Dumping data for table `captcha`
@@ -88,7 +97,11 @@ INSERT INTO `captcha` (`captcha_id`, `captcha_time`, `ip_address`, `word`) VALUE
 (31, 1388706232, '192.168.1.106', 'cjTPQaLF'),
 (32, 1388777965, '192.168.1.106', 'GOyIhBAx'),
 (33, 1388778081, '192.168.1.106', 'm5GbZ5bD'),
-(34, 1388778296, '192.168.1.106', 'xYFo6niz');
+(34, 1388778296, '192.168.1.106', 'xYFo6niz'),
+(35, 1388780264, '192.168.1.106', 'TZBgxv5w'),
+(36, 1388782456, '192.168.1.106', 'XJyvK3Gz'),
+(37, 1388784393, '192.168.1.106', 'jrVmvUIq'),
+(38, 1388784488, '192.168.1.106', '3SHAZBQ1');
 
 -- --------------------------------------------------------
 
@@ -102,7 +115,15 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `slug` text NOT NULL,
   UNIQUE KEY `id_2` (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `title`, `slug`) VALUES
+(1, 'Projects', 'projects'),
+(2, 'Portfolio', 'portfolio');
 
 -- --------------------------------------------------------
 
