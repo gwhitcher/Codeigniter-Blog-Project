@@ -2,7 +2,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('admin/add_article') ?>
+<?php echo form_open_multipart('admin/add_article') ?>
 
 	<label for="title">Title</label>
     <br />
@@ -22,6 +22,13 @@
     <br />
 	<textarea name="body"></textarea>
 	<br />
+    
+    <label for="featured">Featured</label>
+    <br />
+	<input type="file" name="featured" />
+	<br />
+    
+    
 
 <input type="submit" name="submit" value="Post" />
 

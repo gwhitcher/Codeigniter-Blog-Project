@@ -14,7 +14,7 @@ class Blog extends CI_Controller {
 				
 	$config['base_url'] = site_url('articles/index/');
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
-	$config['per_page'] = 1;
+	$config['per_page'] = 5;
 	$config['num_links'] = 5;
 	$config['full_tag_open'] = '<div id="pagination">';
 	$config['full_tag_close'] = '</div>';
@@ -60,7 +60,7 @@ class Blog extends CI_Controller {
 				
 	$config['base_url'] = site_url('category/'.$slug.'/');
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
-	$config['per_page'] = 1;
+	$config['per_page'] = 5;
 	$config['num_links'] = 5;
 	$config['full_tag_open'] = '<div id="pagination">';
 	$config['full_tag_close'] = '</div>';

@@ -1,19 +1,27 @@
 <?php
 class Admin_model extends CI_Model
-{
+{	
+	// SET ARTICLES
 	public function set_article()
 	{
+	$this->load->library("upload");
 	$this->load->helper('url');
-
-	$slug = url_title($this->input->post('title'), 'dash', TRUE);
-
+	$slug = url_title($this->input->post('title'),'dash',TRUE);
+	$config['upload_path'] = './images/posts/';
+	$config['allowed_types'] = 'gif|jpg|png';
+	$config['max_width'] = '620';
+	$config['max_height'] = '150';
+	$this->upload->initialize($config); 
+	$this->upload->do_upload('featured');
+	$image_data = $this->upload->data();
+	$featured = $image_data['file_name'];
 	$data = array(
 		'title' => $this->input->post('title'),
 		'category_id' => $this->input->post('category_id'),
 		'slug' => $slug,
-		'body' => $this->input->post('body')
+		'body' => $this->input->post('body'),
+		'featured' => $featured
 	);
-
 	return $this->db->insert('articles', $data);
 	}
 	
@@ -33,14 +41,23 @@ class Admin_model extends CI_Model
 	//EDIT ARTICLE
 	public function update_article($id=0)
 	{
+	$this->load->library("upload");
 	$this->load->helper('url');
- 
 	$slug = url_title($this->input->post('title'),'dash',TRUE);
+	$config['upload_path'] = './images/posts/';
+	$config['allowed_types'] = 'gif|jpg|png';
+	$config['max_width'] = '620';
+	$config['max_height'] = '150';
+	$this->upload->initialize($config); 
+	$this->upload->do_upload('featured');
+	$image_data = $this->upload->data();
+	$featured = $image_data['file_name'];
 	$data = array(
 		'title' => $this->input->post('title'),
 		'category_id' => $this->input->post('category_id'),
 		'slug' => $slug,
-		'body' => $this->input->post('body')
+		'body' => $this->input->post('body'),
+		'featured' => $featured
 	);
 	$this->db->where('id',$id);
 	return $this->db->update('articles',$data);

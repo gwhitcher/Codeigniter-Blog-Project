@@ -2,7 +2,7 @@
 
 <?php echo validation_errors(); ?>
 
-<?php echo form_open('admin/edit_article/'.$articleid.'') ?>
+<?php echo form_open_multipart('admin/edit_article/'.$articleid.'') ?>
 
 	<label for="title">Title</label>
     <br />
@@ -13,7 +13,7 @@
     <br />
 	<select name="category_id">
       <?php foreach ($categories as $category) { ?>
-		<option value="<?php echo $category['id']; ?>" <?php if ($category['id'] == $category['id']) { echo 'selected=selected'; } ?>><?php echo $category['title']; ?></option>  
+		<option value="<?php echo $category['id']; ?>" <?php if ($article['category_id'] == $category['id']) { echo 'selected=selected'; } ?>><?php echo $category['title']; ?></option>  
 	  <?php } ?>
 	</select>
 	<br />
@@ -22,6 +22,11 @@
     <br />
 	<textarea name="body"><?php echo $article['body']; ?></textarea>
 	<br />
+    
+    <label for="featured">Featured</label>
+    <br />
+	<input name="featured" title="featured" type="file" value="<?php echo $article['featured']; ?>" />
+    <br />
 
 <input type="submit" name="submit" value="Post" />
 

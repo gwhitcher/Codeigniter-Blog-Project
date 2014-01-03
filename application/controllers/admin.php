@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-session_start(); //we need to call PHP's session object to access it through CI
+session_start(); //LOAD SESSION
 class Admin extends CI_Controller {
 
 	function __construct()
@@ -29,13 +29,6 @@ class Admin extends CI_Controller {
      redirect('login', 'refresh');
 	}
 	}
-
-	function logout()
-	{
-	$this->session->unset_userdata('logged_in');
-	session_destroy();
-	redirect('', 'refresh');
-	}
  
 	//ADD ARTICLE
 	public function add_article()
@@ -46,27 +39,23 @@ class Admin extends CI_Controller {
 	$data['username'] = $session_data['username'];
 	$this->load->helper('form');
 	$this->load->library('form_validation');
-
 	$data['title'] = 'Add Article';
-
 	$this->form_validation->set_rules('title', 'Title', 'required');
 	$this->form_validation->set_rules('body', 'body', 'required');
-	
 	$query = $this->db->get('categories');
 	$data["categories"] = $query->result_array();
-
 	if ($this->form_validation->run() === FALSE)
 	{
 		$this->load->view('template/header', $data);
-		$this->load->view('admin/add_article');
-		$this->load->view('template/footer');
-
+		$this->load->view('admin/add_article', $data);
+		$this->load->view('template/footer', $data);
 	}
 	else
 	{
 		$this->load->model('admin_model');
 		$this->admin_model->set_article();
 		redirect('admin', 'refresh');
+
 	}
 	} else {
 		redirect('login', 'refresh');
@@ -197,7 +186,13 @@ class Admin extends CI_Controller {
 		redirect('login', 'refresh');
 	}
 	}
- 
+	
+	//LOGOUT
+	function logout()
+	{
+	$this->session->unset_userdata('logged_in');
+	session_destroy();
+	redirect('', 'refresh');
+	}
 }
-
 ?>
