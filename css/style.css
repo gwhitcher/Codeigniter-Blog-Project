@@ -1,0 +1,194 @@
+/* MAIN STYLES */
+
+@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900);
+@import url(http://fonts.googleapis.com/css?family=Sanchez:400,400italic);
+@import url(http://fonts.googleapis.com/css?family=Iceland);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+@import url(http://fonts.googleapis.com/css?family=Great+Vibes);
+
+html { 
+  background: url(../images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/bg.jpg', sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/bg.jpg', sizingMethod='scale');
+}
+
+body {
+    color: #000;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    padding: 0;
+    margin: 0;
+}
+
+a:link,a:visited,a:active {
+    color: #000;
+}
+
+a:hover {
+    color: #900;
+}
+
+blockquote {
+    background: #EEE;
+    border: 1px dotted #000;
+    margin: 0;
+    padding: 0 15px;
+}
+
+h1,h2,h3,h4,h5,h6,h7 {
+    font-family: Iceland, cursive;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* STRUCTURE */
+
+#container {
+	width: 900px;
+	margin: 0 auto;
+	padding: 15px;
+	border-left: 2px solid #000;
+	border-right: 2px solid #000;
+	background-color: #FFF;
+	background-image: url(../images/page_bg.png);
+}
+
+header {
+	clear: both;
+	text-align: center;
+}
+
+header h1 a {
+	text-decoration: none;
+	font-family: 'Great Vibes', cursive;
+    font-size: 62px;
+}
+
+header h2 {
+	font-family: Iceland, cursive;
+    font-size: 18px;
+	padding-bottom: 5px;
+}
+
+nav {
+    background: #111;
+    border-radius: 5px;
+    display: block;
+    float: left;
+    font-family: Iceland, cursive;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 auto 1em;
+    moz-border-radius: 5px;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+nav li {
+    float: left;
+    position: relative;
+}
+
+nav a, nav a:visited {
+    color: #FFF;
+    display: block;
+    line-height: 2em;
+    padding: 0 1em;
+    text-decoration: none;
+	float: left;
+}
+
+nav ul ul {
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    display: none;
+    float: left;
+    left: 0;
+    moz-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    position: absolute;
+    top: 2em;
+    webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    z-index: 99999;
+}
+
+nav ul ul ul {
+    left: 100%;
+    top: 0;
+}
+
+nav ul ul a {
+    background: #111;
+    height: auto;
+    line-height: 1em;
+    padding: .5em .5em .5em 1em;
+    width: 10em;
+}
+
+nav li:hover > a,nav ul ul :hover > a {
+    background: #222;
+    color: #900;
+}
+
+nav ul ul a:hover {
+    background: #222;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+section {
+	width: 880px;
+	padding-left:5px;
+}
+
+section h2 {
+	font-size: 32px;	
+}
+
+section h2 a {
+	text-decoration: none;	
+}
+
+sidebar {
+	float: right;
+	width: 250px;
+}
+
+sidebar #sidebar_item {
+	width: 230px;
+	background: #111;
+    border: 1px solid #444;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    margin: 10px;
+    moz-border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+sidebar #sidebar_item a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+sidebar #sidebar_item a:hover {
+	text-decoration: underline;
+}
+
+footer {
+	clear: both;
+	width: 100%;
+	padding: 5px;
+	text-align: center;
+}
