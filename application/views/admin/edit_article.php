@@ -20,7 +20,7 @@
     
 	<label for="body">Body</label>
     <br />
-	<textarea name="body"><?php echo $article['body']; ?></textarea>
+	<textarea name="body" cols="105" rows="10"><?php echo $article['body']; ?></textarea>
 	<br />
     
     <label for="featured">Featured</label>
