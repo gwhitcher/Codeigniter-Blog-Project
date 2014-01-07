@@ -6,7 +6,17 @@
 
 	<label for="title">Title</label>
     <br />
-	<input type="input" name="title" />
+	<input type="input" name="title" size="50"/>
+    <br />
+    
+    <label for="metadescription">Meta Description (leave blank for default)</label>
+    <br />
+	<input type="input" name="metadescription" size="50"/>
+    <br />
+    
+    <label for="metakeywords">Meta Keywords (leave blank for default, seperate each by comma)</label>
+    <br />
+	<input type="input" name="metakeywords" size="50"/>
     <br />
     
     <label for="category_id">Category</label>

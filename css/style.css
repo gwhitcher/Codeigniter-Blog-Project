@@ -98,6 +98,7 @@ nav ul {
 nav li {
     float: left;
     position: relative;
+	color: #FFF;
 }
 
 nav a:link, nav a:visited {
@@ -177,13 +178,33 @@ sidebar #sidebar_item {
     padding: 5px 10px 5px 10px;
 }
 
+sidebar #sidebar_item h2 {
+	font-size: 24px;
+}
+
 sidebar #sidebar_item a {
 	color: #FFF;
-	text-decoration: none;
 }
 
 sidebar #sidebar_item a:hover {
+	color: #900;
 	text-decoration: underline;
+}
+
+sidebar #sidebar_item p {
+	font-size: 14px;
+	text-align: center;
+	padding: 0px;
+	margin: 0px;	
+}
+
+sidebar #sidebar_item #followme img {
+	padding: 3px;
+}
+
+sidebar #sidebar_item #nametagimage {
+	padding: 5px;
+	color: #FFF;	
 }
 
 footer {
@@ -191,4 +212,22 @@ footer {
 	width: 100%;
 	padding: 5px;
 	text-align: center;
+}
+
+/* PAGES */
+
+section #aboutimage {
+	float: right;
+	padding: 5px;
+	margin: 5px;
+	border: 1px #111 dashed;	
+}
+
+section #comments {
+	width: 620px;
+	padding-top: 15px;	
+}
+
+section #leftsection {
+	width: 620px;
 }

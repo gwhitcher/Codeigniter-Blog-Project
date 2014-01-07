@@ -6,7 +6,6 @@
 <?php echo $captchaincorrect; ?>
 <?php } ?>
 <?php echo validation_errors(); ?>
-
 <?php echo form_open_multipart('./contact') ?>
 <label for="email">Email</label><br />
 <input type="input" name="email" /><br />
@@ -15,7 +14,7 @@
 <label for="subject">Subject</label><br />
 <input type="input" name="subject" /><br />
 <label for="message">Message</label><br />
-<textarea name="message" cols="50" rows="10"></textarea><br />
+<textarea name="message" cols="70" rows="10"></textarea><br />
 <?php echo $captcha; ?><br />
 <input type="text" name="captcha" value="" /><br />
 <input type="submit" name="submit" value="Submit" /> 

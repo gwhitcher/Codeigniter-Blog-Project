@@ -6,7 +6,7 @@
 
 	<label for="title">Title</label>
     <br />
-	<input type="input" name="title" />
+	<input type="input" name="title" size="50" />
     <br />
 
 <input type="submit" name="submit" value="Post" />

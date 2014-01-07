@@ -52,13 +52,26 @@ class Admin_model extends CI_Model
 	$this->upload->do_upload('featured');
 	$image_data = $this->upload->data();
 	$featured = $image_data['file_name'];
+	if (!empty($featured)) {
 	$data = array(
 		'title' => $this->input->post('title'),
+		'metadescription' => $this->input->post('metadescription'),
+		'metakeywords' => $this->input->post('metakeywords'),
 		'category_id' => $this->input->post('category_id'),
 		'slug' => $slug,
 		'body' => $this->input->post('body'),
 		'featured' => $featured
 	);
+	} else {
+	$data = array(
+		'title' => $this->input->post('title'),
+		'metadescription' => $this->input->post('metadescription'),
+		'metakeywords' => $this->input->post('metakeywords'),
+		'category_id' => $this->input->post('category_id'),
+		'slug' => $slug,
+		'body' => $this->input->post('body')
+	);
+	}
 	$this->db->where('id',$id);
 	return $this->db->update('articles',$data);
 	}
@@ -88,6 +101,8 @@ class Admin_model extends CI_Model
 	$slug = url_title($this->input->post('title'),'dash',TRUE);
 	$data = array(
 		'title' => $this->input->post('title'),
+		'metadescription' => $this->input->post('metadescription'),
+		'metakeywords' => $this->input->post('metakeywords'),
 		'slug' => $slug,
 	);
 	
@@ -106,6 +121,8 @@ class Admin_model extends CI_Model
 	$slug = url_title($this->input->post('title'),'dash',TRUE);
 	$data = array(
 		'title' => $this->input->post('title'),
+		'metadescription' => $this->input->post('metadescription'),
+		'metakeywords' => $this->input->post('metakeywords'),
 		'slug' => $slug,
 	);
 	$this->db->where('id',$id);

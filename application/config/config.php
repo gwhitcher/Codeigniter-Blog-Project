@@ -359,20 +359,7 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-/*
-|--------------------------------------------------------------------------
-| Global Variables
-|--------------------------------------------------------------------------
-|
-| These are variables which are accessed throughout the website randomly.
-|
-*/
-$config['title'] = 'George Whitcher';
-$config['sub_title'] = 'Web Developer, Musician, Gamer, Nerd';
-$config['version'] = '1.0';
-$config['copyrightyear'] = '2013';
-$config['adminemail'] = 'admin@admin.com';
-
+include('custom.php');
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */

@@ -22,7 +22,6 @@ class Pages extends CI_Controller {
 	//CONTACT
 	function contact()
 	{
-	 $data['title'] = 'Contact';
 	 $this->load->helper('captcha');
 	 $this->load->library('form_validation');
 	 $this->form_validation->set_rules('email','email','required');
@@ -73,6 +72,7 @@ class Pages extends CI_Controller {
 	 $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
 	 $data['user_id'] = $session_data['id'];
+	 $data['title'] = 'Contact';
 	 $this->load->view('template/header', $data);
 	 $this->load->view('template/sidebar', $data);
      $this->load->view('contact_view', $data);

@@ -1,0 +1,20 @@
+/* MOBILE STYLES */
+@media only screen and (max-width: 500px)
+{
+	#container {
+		width: 100%;
+		padding: 0px;	
+	}
+	section {
+		width: 95%;
+	}
+	section img {
+		width: 100%;
+	}
+	sidebar {
+		display: none;
+	}
+	footer {
+		padding: 5px;
+	}
+}

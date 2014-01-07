@@ -6,7 +6,17 @@
 
 	<label for="title">Title</label>
     <br />
-	<input name="title" title="title" type="input" value="<?php echo $article['title']; ?>" />
+	<input name="title" title="title" type="input" value="<?php echo $article['title']; ?>" size="50" />
+    <br />
+    
+    <label for="metadescription">Meta Description (leave blank for default)</label>
+    <br />
+	<input type="input" name="metadescription" value="<?php echo $article['metadescription']; ?>" size="50"/>
+    <br />
+    
+    <label for="metakeywords">Meta Keywords (leave blank for default, seperate each by comma)</label>
+    <br />
+	<input type="input" name="metakeywords" value="<?php echo $article['metakeywords']; ?>" size="50"/>
     <br />
     
     <label for="category_id">Category</label>

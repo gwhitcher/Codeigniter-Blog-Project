@@ -2,16 +2,21 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title><?php echo $this->config->item('title'); ?> | <?php echo $this->config->item('sub_title'); ?></title>
-<link href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="<?php echo base_url(); ?>js/wysiwyg/nicEdit.js"></script>
-<script type="text/javascript">
-bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
-</script>
+<title><?php echo $this->config->item('title'); ?> | <?php if ($this->router->method == 'index') { echo $this->config->item('sub_title'); } else { echo $title; } ?></title>
+<meta name="description" content="<?php if (!empty($metadescription)) { echo $metadescription; } else { echo $this->config->item('metadescription'); } ?>">
+<meta name="keywords" content="<?php if (!empty($metakeywords)) { echo $metakeywords; } else { echo $this->config->item('metakeywords'); } ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="Screen" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="handheld" /
 <link href="<?php echo base_url(); ?>css/ui-darkness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
-<script src="<?php echo base_url(); ?>js/jquery/jquery-1.9.1.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery/jquery-ui-1.10.3.custom.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery/jquery-ui-all.js"></script>
+<script src="<?php echo base_url(); ?>js/jqueryui/jquery-1.9.1.js"></script>
+<script src="<?php echo base_url(); ?>js/jqueryui/jquery-ui-1.10.3.custom.js"></script>
+<script src="<?php echo base_url(); ?>js/jqueryui/jquery-ui-all.js"></script>
+<?php if ($this->router->class == 'admin') { ?>
+<script src="<?php echo base_url(); ?>js/tinymce/tinymce.min.js"></script>
+<script src="<?php echo base_url(); ?>js/tinymce/tinymce-global.js"></script>
+<?php } ?>
 </head>
 <body>
 <div id="container">

@@ -45,6 +45,7 @@ $route['verifylogin'] = 'verifylogin';
 $route['admin'] = "admin";
 $route['about'] = "pages/about";
 $route['contact'] = "pages/contact";
+$route['rss'] = "blog/rss";
 $route['category/(:any)'] = 'blog/category/$1';
 $route['blog/(:any)'] = 'blog/view/$1';
 $route['articles/(:any)'] = 'blog/index/$1';
