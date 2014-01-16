@@ -15,12 +15,15 @@ class Admin extends CI_Controller {
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
 	 //LOAD SIDEBAR
+	 $query = $this->db->order_by("position","asc");
 	 $query = $this->db->get('sidebar');
 	 $data["sidebar"] = $query->result_array();
 	 //LOAD ARTICLES
+	 $query = $this->db->order_by("id","desc");
 	 $query = $this->db->get('articles');
 	 $data["articles"] = $query->result_array();
 	 //LOAD CATEGORIES
+	 $query = $this->db->order_by("id","desc");
 	 $query = $this->db->get('categories');
 	 $data["categories"] = $query->result_array();
 	 $this->load->view('template/header', $data);

@@ -99,4 +99,16 @@ class Blog extends CI_Controller {
 	$this->load->view('rss_view', $data);	
 	}
 	
+	//RSS
+	function search() {
+	$data['title'] = 'Search';
+	$sidebarquery = $this->db->order_by("position","asc");
+	$sidebarquery = $this->db->get('sidebar');
+	$data["sidebar"] = $sidebarquery->result_array();
+	$this->load->view('template/header', $data);
+	$this->load->view('template/sidebar', $data);
+	$this->load->view('search_view', $data);
+	$this->load->view('template/footer', $data);	
+	}
+	
 }

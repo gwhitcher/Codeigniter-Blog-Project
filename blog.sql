@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2014 at 03:10 AM
+-- Generation Time: Jan 16, 2014 at 04:54 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) NOT NULL,
   `title` text NOT NULL,
+  `date` text NOT NULL,
   `slug` text NOT NULL,
   `body` text NOT NULL,
   `featured` text NOT NULL,
@@ -42,8 +43,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `category_id`, `title`, `slug`, `body`, `featured`, `metadescription`, `metakeywords`) VALUES
-(1, 1, 'Codeigniter Blog Project BETA 1.0', 'codeigniter-blog-project-beta-10', '<p>Hello everyone and welcome to my blog!  My name is George Whitcher and I have been working as a full-time web developer since 2006.  This blog post is introducing my blog as well as my blog software written in PHP and the Codeigniter framework which this blog is run on.</p><p>I started this project as while I like the content management systems out there like Wordpress and Joomla, why rely on them when you don''t have too? &nbsp;I also feel I can build something better over time. &nbsp;So stay tuned to the bitbucket provided below for the latest updates. &nbsp;I will try to keep the demo up to date as possible.</p><h1>Codeigniter Blog Project</h1><p>A blogging platform written in PHP in the Codeigniter framework by George Whitcher. &nbsp;</p><p>Setup the blog by going to /application/config/config.php and filling in all the necessary values as well as /application/config/database.php. &nbsp;</p><p>Import blog.sql to the database you configured. &nbsp;</p><p>CHMOD the /captcha/ and /images/* directories to 777 and you are all set!</p><p>Demo: <a href="http://blog.georgewhitcher.com" title="Codeigniter Blog" target="_blank">blog.georgewhitcher.com</a><br>Admin: <a href="http://blog.georgewhitcher.com/admin" title="Codeigniter Blog" target="_blank">blog.georgewhitcher.com/admin</a><br>UN: admin<br>PW: administrator</p><p><br></p>', 'codeigniter1.jpg', '1', '');
+INSERT INTO `articles` (`id`, `category_id`, `title`, `date`, `slug`, `body`, `featured`, `metadescription`, `metakeywords`) VALUES
+(1, 1, 'Codeigniter Blog Project BETA 1.0', '0000-00-00', 'codeigniter-blog-project-beta-10', '<p>Hello everyone and welcome to my blog!  My name is George Whitcher and I have been working as a full-time web developer since 2006.  This blog post is introducing my blog as well as my blog software written in PHP and the Codeigniter framework which this blog is run on.</p><p>I started this project as while I like the content management systems out there like Wordpress and Joomla, why rely on them when you don''t have too? &nbsp;I also feel I can build something better over time. &nbsp;So stay tuned to the bitbucket provided below for the latest updates. &nbsp;I will try to keep the demo up to date as possible.</p><h1>Codeigniter Blog Project</h1><p>A blogging platform written in PHP in the Codeigniter framework by George Whitcher. &nbsp;</p><p>Setup the blog by going to /application/config/config.php and filling in all the necessary values as well as /application/config/database.php. &nbsp;</p><p>Import blog.sql to the database you configured. &nbsp;</p><p>CHMOD the /captcha/ and /images/* directories to 777 and you are all set!</p><p>Demo: <a href="http://blog.georgewhitcher.com" title="Codeigniter Blog" target="_blank">blog.georgewhitcher.com</a><br>Admin: <a href="http://blog.georgewhitcher.com/admin" title="Codeigniter Blog" target="_blank">blog.georgewhitcher.com/admin</a><br>UN: admin<br>PW: administrator</p><p><br></p>', 'codeigniter1.jpg', '1', '');
 
 -- --------------------------------------------------------
 
@@ -204,14 +205,15 @@ CREATE TABLE IF NOT EXISTS `sidebar` (
   `position` int(11) NOT NULL,
   UNIQUE KEY `id_2` (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `sidebar`
 --
 
 INSERT INTO `sidebar` (`id`, `title`, `body`, `position`) VALUES
-(1, 'Categories', '<?php\r\n$query = $this->db->query("SELECT * FROM categories");\r\n\r\nforeach ($query->result_array() as $row)\r\n{\r\n   echo ''<li><a href="''.base_url().''category/''.$row[''slug''].''">''.$row[''title''].''</a></li>'';\r\n}\r\n?>', 1);
+(1, 'Categories', '<?php\r\n$query = $this->db->query("SELECT * FROM categories");\r\n\r\nforeach ($query->result_array() as $row)\r\n{\r\n   echo ''<li><a href="''.base_url().''category/''.$row[''slug''].''">''.$row[''title''].''</a></li>'';\r\n}\r\n?>', 2),
+(2, 'Search', '<form method="post" action="<?php echo base_url(); ?>search">\r\n<input name="search" type="text">\r\n<input name="submit" type="submit" value="Search">\r\n</form>', 1);
 
 -- --------------------------------------------------------
 
