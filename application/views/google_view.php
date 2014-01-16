@@ -1,11 +1,11 @@
 <?php echo '<'.'?xml version="1.0" encoding="UTF-8" standalone="yes" ?>';?>
 <?php header("Content-type: text/xml"); ?>
-<urlset xmlns="http://www.google.com/schemas/sitemap/0.90">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc><?php echo base_url();?></loc>
     <lastmod><?php echo date("Y-m-d\TH:i:sP"); ?></lastmod>
     <changefreq>daily</changefreq>
-    <priority>10</priority>
+    <priority>0.9</priority>
   </url>
 <?php foreach ($categories as $category) { ?> 
   <url>
@@ -27,12 +27,12 @@
     <loc><?php echo base_url();?>about</loc>
     <lastmod><?php echo date("Y-m-d\TH:i:sP"); ?></lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc><?php echo base_url();?>contact</loc>
     <lastmod><?php echo date("Y-m-d\TH:i:sP"); ?></lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
 </urlset>
