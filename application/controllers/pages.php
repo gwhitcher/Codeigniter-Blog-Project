@@ -4,6 +4,8 @@ class Pages extends CI_Controller {
 	public function about()
 	{
 		$data['title'] = 'About';
+		$query = $this->db->get('sidebar');
+		$data["sidebar"] = $query->result_array();
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('about_view', $data);
@@ -13,6 +15,8 @@ class Pages extends CI_Controller {
 	public function resume()
 	{
 		$data['title'] = 'Resume';
+		$query = $this->db->get('sidebar');
+		$data["sidebar"] = $query->result_array();
 		$this->load->view('template/header', $data);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('resume_view', $data);
@@ -73,6 +77,8 @@ class Pages extends CI_Controller {
      $data['username'] = $session_data['username'];
 	 $data['user_id'] = $session_data['id'];
 	 $data['title'] = 'Contact';
+	 $query = $this->db->get('sidebar');
+	 $data["sidebar"] = $query->result_array();
 	 $this->load->view('template/header', $data);
 	 $this->load->view('template/sidebar', $data);
      $this->load->view('contact_view', $data);

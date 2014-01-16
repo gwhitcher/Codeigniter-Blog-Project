@@ -14,7 +14,7 @@ class Blog extends CI_Controller {
 				
 	$config['base_url'] = site_url('articles/index/');
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
-	$config['per_page'] = 5;
+	$config['per_page'] = 3;
 	$config['num_links'] = 5;
 	$config['full_tag_open'] = '<div id="pagination">';
 	$config['full_tag_close'] = '</div>';
@@ -23,6 +23,8 @@ class Blog extends CI_Controller {
 	$query = $this->db->get('articles', $config['per_page'], $this->uri->segment(3));
 	$data["articles"] = $query->result_array();
 	$data['title'] = 'Home';
+	$query = $this->db->get('sidebar');
+	$data["sidebar"] = $query->result_array();
 	$this->load->view('template/header', $data);
 	$this->load->view('template/sidebar', $data);
 	$this->load->view('index_view', $data);
@@ -41,6 +43,8 @@ class Blog extends CI_Controller {
 	$data['metadescription'] = $data['article']['metadescription'];
 	$data['metakeywords'] = $data['article']['metakeywords'];
 	$data['title'] = $data['article']['title'];
+	$query = $this->db->get('sidebar');
+	$data["sidebar"] = $query->result_array();
 	$this->load->view('template/header', $data);
 	$this->load->view('template/sidebar', $data);
 	$this->load->view('article_view', $data);
@@ -59,8 +63,9 @@ class Blog extends CI_Controller {
 		show_404();
 	}			
 	$config['base_url'] = site_url('category/'.$slug.'/');
+	$this->db->where('slug', $slug);
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
-	$config['per_page'] = 5;
+	$config['per_page'] = 3;
 	$config['num_links'] = 5;
 	$config['full_tag_open'] = '<div id="pagination">';
 	$config['full_tag_close'] = '</div>';
@@ -72,6 +77,8 @@ class Blog extends CI_Controller {
 	$data['metadescription'] = $data['category']['metadescription'];
 	$data['metakeywords'] = $data['category']['metakeywords'];
 	$data['title'] = $data['category']['title'];
+	$query = $this->db->get('sidebar');
+	$data["sidebar"] = $query->result_array();
 	$this->load->view('template/header', $data);
 	$this->load->view('template/sidebar', $data);
 	$this->load->view('category_view', $data);

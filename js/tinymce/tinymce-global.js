@@ -1,5 +1,7 @@
 tinymce.init({
-  selector: "textarea",
+  mode: "textareas",
+  
+  editor_deselector: "mceNoEditor",
   
   // ===========================================
   // INCLUDE THE PLUGIN

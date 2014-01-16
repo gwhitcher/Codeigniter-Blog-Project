@@ -1,5 +1,5 @@
 <h2>Post article</h2>
-
+<a href="<?php echo base_url(); ?>blog/<?php echo $article['slug']; ?>">View page</a>
 <?php echo validation_errors(); ?>
 
 <?php echo form_open_multipart('admin/edit_article/'.$articleid.'') ?>
@@ -32,7 +32,9 @@
     <br />
 	<textarea name="body" cols="105" rows="10"><?php echo $article['body']; ?></textarea>
 	<br />
-    
+    <?php if (!empty($article['featured'])) { ?>
+    <img src="<?php echo base_url(); ?>images/posts/<?php echo $article['featured']; ?>" /><br />
+    <?php } ?>
     <label for="featured">Featured</label>
     <br />
 	<input name="featured" title="featured" type="file" value="<?php echo $article['featured']; ?>" />

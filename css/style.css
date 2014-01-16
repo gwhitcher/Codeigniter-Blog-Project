@@ -1,8 +1,6 @@
 /* MAIN STYLES */
 
-@import url(http://fonts.googleapis.com/css?family=Cinzel+Decorative:400,700,900);
-@import url(http://fonts.googleapis.com/css?family=Sanchez:400,400italic);
-@import url(http://fonts.googleapis.com/css?family=Iceland);
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:400,900italic);
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 @import url(http://fonts.googleapis.com/css?family=Great+Vibes);
 
@@ -40,7 +38,7 @@ blockquote {
 }
 
 h1,h2,h3,h4,h5,h6,h7 {
-    font-family: Iceland, cursive;
+    font-family: 'Alegreya Sans', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -71,19 +69,17 @@ header h1 a {
 }
 
 header h2 {
-	font-family: Iceland, cursive;
     font-size: 18px;
 	padding-bottom: 5px;
 }
 
 nav {
+	font-family: 'Alegreya Sans', sans-serif;
     background: #111;
     border-radius: 5px;
     display: block;
     float: left;
-    font-family: Iceland, cursive;
     font-size: 20px;
-    font-weight: 700;
     margin: 0 auto 1em;
     moz-border-radius: 5px;
     width: 100%;
@@ -108,6 +104,10 @@ nav a:link, nav a:visited {
     padding: 0 1em;
     text-decoration: none;
 	float: left;
+}
+
+nav a:hover {
+	color: #900;
 }
 
 nav ul ul {
@@ -161,6 +161,15 @@ section h2 a {
 	text-decoration: none;	
 }
 
+section #featuredimg {
+	margin: 0 auto;
+	text-align: center;
+}
+
+section p {
+	text-align: justify;
+}
+
 sidebar {
 	float: right;
 	width: 250px;
@@ -179,15 +188,16 @@ sidebar #sidebar_item {
 }
 
 sidebar #sidebar_item h2 {
-	font-size: 24px;
+	font-size: 22px;
 }
 
 sidebar #sidebar_item a {
-	color: #FFF;
+	color: #900;
+	text-decoration: none;
 }
 
 sidebar #sidebar_item a:hover {
-	color: #900;
+	color: #FFF;
 	text-decoration: underline;
 }
 

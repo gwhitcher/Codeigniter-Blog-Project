@@ -55,6 +55,9 @@ $route['admin/delete_article/(:any)'] = 'admin/delete_article/$1';
 $route['admin/add_category'] = 'admin/add_category';
 $route['admin/edit_category/(:any)'] = 'admin/edit_category/$1';
 $route['admin/delete_category/(:any)'] = 'admin/delete_category/$1';
+$route['admin/add_sidebar'] = 'admin/add_sidebar';
+$route['admin/edit_sidebar/(:any)'] = 'admin/edit_sidebar/$1';
+$route['admin/delete_sidebar/(:any)'] = 'admin/delete_sidebar/$1';
 $route['404_override'] = '';
 
 

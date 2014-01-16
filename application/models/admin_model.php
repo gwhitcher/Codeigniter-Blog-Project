@@ -1,6 +1,45 @@
 <?php
 class Admin_model extends CI_Model
 {	
+	// SET SIDEBAR
+	public function set_sidebar()
+	{
+	$data = array(
+		'title' => $this->input->post('title'),
+		'body' => $this->input->post('body')
+	);
+	return $this->db->insert('sidebar', $data);
+	}
+	
+	//GET SIDEBAR BY ID
+	public function get_sidebar($id = FALSE)
+	{
+	if ($id === FALSE)
+	{
+		$query = $this->db->get('sidebar');
+		return $query->result_array();
+	}
+
+	$query = $this->db->get_where('sidebar', array('id' => $id));
+	return $query->row_array();
+	}
+	
+	//EDIT SIDEBAR
+	public function update_sidebar($id=0)
+	{
+	$data = array(
+		'title' => $this->input->post('title'),
+		'body' => $this->input->post('body')
+	);
+	$this->db->where('id',$id);
+	return $this->db->update('sidebar',$data);
+	}
+	
+	//DELETE SIDEBAR
+	public function delete_sidebar($id) {
+    $this->db->delete('sidebar', array('id' => $id));
+	}
+	
 	// SET ARTICLES
 	public function set_article()
 	{
@@ -9,14 +48,16 @@ class Admin_model extends CI_Model
 	$slug = url_title($this->input->post('title'),'dash',TRUE);
 	$config['upload_path'] = './images/posts/';
 	$config['allowed_types'] = 'gif|jpg|png';
-	$config['max_width'] = '620';
-	$config['max_height'] = '150';
+	$config['max_width'] = '600';
+	$config['max_height'] = '200';
 	$this->upload->initialize($config); 
 	$this->upload->do_upload('featured');
 	$image_data = $this->upload->data();
 	$featured = $image_data['file_name'];
 	$data = array(
 		'title' => $this->input->post('title'),
+		'metadescription' => $this->input->post('metadescription'),
+		'metakeywords' => $this->input->post('metakeywords'),
 		'category_id' => $this->input->post('category_id'),
 		'slug' => $slug,
 		'body' => $this->input->post('body'),
@@ -46,8 +87,8 @@ class Admin_model extends CI_Model
 	$slug = url_title($this->input->post('title'),'dash',TRUE);
 	$config['upload_path'] = './images/posts/';
 	$config['allowed_types'] = 'gif|jpg|png';
-	$config['max_width'] = '620';
-	$config['max_height'] = '150';
+	$config['max_width'] = '600';
+	$config['max_height'] = '200';
 	$this->upload->initialize($config); 
 	$this->upload->do_upload('featured');
 	$image_data = $this->upload->data();

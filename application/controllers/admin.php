@@ -14,6 +14,9 @@ class Admin extends CI_Controller {
 	{
      $session_data = $this->session->userdata('logged_in');
      $data['username'] = $session_data['username'];
+	 //LOAD SIDEBAR
+	 $query = $this->db->get('sidebar');
+	 $data["sidebar"] = $query->result_array();
 	 //LOAD ARTICLES
 	 $query = $this->db->get('articles');
 	 $data["articles"] = $query->result_array();
@@ -27,6 +30,83 @@ class Admin extends CI_Controller {
 	else
 	{
      redirect('login', 'refresh');
+	}
+	}
+	
+	//ADD SIDEBAR
+	public function add_sidebar()
+	{
+	if($this->session->userdata('logged_in'))
+	{
+	$session_data = $this->session->userdata('logged_in');
+	$data['username'] = $session_data['username'];
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	$data['title'] = 'Add sidebar';
+	$this->form_validation->set_rules('title', 'Title', 'required');
+	$this->form_validation->set_rules('body', 'body', 'required');
+	if ($this->form_validation->run() === FALSE)
+	{
+		$this->load->view('template/header', $data);
+		$this->load->view('admin/add_sidebar', $data);
+		$this->load->view('template/footer', $data);
+	}
+	else
+	{
+		$this->load->model('admin_model');
+		$this->admin_model->set_sidebar();
+		redirect('admin', 'refresh');
+
+	}
+	} else {
+		redirect('login', 'refresh');
+	}
+	}
+ 
+	//EDIT SIDEBAR
+	function edit_sidebar($id) {
+	{
+	if($this->session->userdata('logged_in'))
+	{
+	$session_data = $this->session->userdata('logged_in');
+	$data['username'] = $session_data['username'];
+	$data['title'] = 'Edit sidebar';
+	$data['sidebarid'] = $id;
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	$this->load->model('admin_model');
+	$this->form_validation->set_rules('title', 'Title', 'required');
+	if($this->form_validation->run())
+	{
+	$this->admin_model->update_sidebar($id);
+	}
+	$data['sidebar'] = $this->admin_model->get_sidebar($id);
+	if(empty($data['sidebar']))
+	{
+        show_404();
+	}
+	$this->load->view('template/header',$data);
+	$this->load->view('admin/edit_sidebar',$data);
+	$this->load->view('template/footer',$data);
+	} else  {
+		redirect('login', 'refresh');
+	}
+	}
+	}
+	
+	//DELETE SIDEBAR
+	public function delete_sidebar($id) {
+	if($this->session->userdata('logged_in'))
+	{
+	$session_data = $this->session->userdata('logged_in');
+	$this->load->model('admin_model');
+	$data['title'] = 'Item deleted!';
+	$this->admin_model->delete_sidebar($id);
+	$this->load->view('template/header', $data);
+	$this->load->view('admin/delete_sidebar', $data);
+	$this->load->view('template/footer');
+	} else  {
+		redirect('login', 'refresh');
 	}
 	}
  
