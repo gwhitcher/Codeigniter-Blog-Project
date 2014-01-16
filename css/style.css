@@ -170,6 +170,11 @@ section p {
 	text-align: justify;
 }
 
+sidebar ul {
+	padding: 0px 0px 0px 15px;
+	margin: 0px;
+}
+
 sidebar {
 	float: right;
 	width: 250px;
