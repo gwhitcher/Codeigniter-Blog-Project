@@ -10,9 +10,12 @@ class Login extends CI_Controller {
  function index()
  {
    $this->load->helper(array('form'));
-   $this->load->view('template/header');
-   $this->load->view('login_view');
-   $this->load->view('template/footer');
+   $navquery = $this->db->order_by("position","asc");
+   $navquery = $this->db->get('nav');
+   $data["nav"] = $navquery->result_array();
+   $this->load->view('template/header', $data);
+   $this->load->view('login_view', $data);
+   $this->load->view('template/footer', $data);
  }
 
 }

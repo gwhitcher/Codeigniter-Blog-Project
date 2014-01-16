@@ -1,6 +1,47 @@
 <?php
 class Admin_model extends CI_Model
 {	
+	// SET NAV
+	public function set_nav()
+	{
+	$data = array(
+		'title' => $this->input->post('title'),
+		'url' => $this->input->post('url'),
+		'position' => $this->input->post('position')
+	);
+	return $this->db->insert('nav', $data);
+	}
+	
+	//GET NAV BY ID
+	public function get_nav($id = FALSE)
+	{
+	if ($id === FALSE)
+	{
+		$query = $this->db->get('nav');
+		return $query->result_array();
+	}
+
+	$query = $this->db->get_where('nav', array('id' => $id));
+	return $query->row_array();
+	}
+	
+	//EDIT NAV
+	public function update_nav($id=0)
+	{
+	$data = array(
+		'title' => $this->input->post('title'),
+		'url' => $this->input->post('url'),
+		'position' => $this->input->post('position')
+	);
+	$this->db->where('id',$id);
+	return $this->db->update('nav',$data);
+	}
+	
+	//DELETE NAV
+	public function delete_nav($id) {
+    $this->db->delete('nav', array('id' => $id));
+	}	
+	
 	// SET SIDEBAR
 	public function set_sidebar()
 	{
@@ -176,4 +217,52 @@ class Admin_model extends CI_Model
 	$this->db->where('id',$id);
 	return $this->db->update('categories',$data);
 	}
+	
+	// SET PAGE
+	public function set_page()
+	{
+	$slug = url_title($this->input->post('title'),'dash',TRUE);
+	$data = array(
+		'title' => $this->input->post('title'),
+		'metadescription' => $this->input->post('metadescription'),
+		'metakeywords' => $this->input->post('metakeywords'),
+		'slug' => $slug,
+		'body' => $this->input->post('body')
+	);
+	return $this->db->insert('pages', $data);
+	}
+	
+	//GET PAGE BY ID
+	public function get_page($id = FALSE)
+	{
+	if ($id === FALSE)
+	{
+		$query = $this->db->get('pages');
+		return $query->result_array();
+	}
+
+	$query = $this->db->get_where('pages', array('id' => $id));
+	return $query->row_array();
+	}
+	
+	//EDIT PAGE
+	public function update_page($id=0)
+	{
+	$slug = url_title($this->input->post('title'),'dash',TRUE);
+	$data = array(
+		'title' => $this->input->post('title'),
+		'metadescription' => $this->input->post('metadescription'),
+		'metakeywords' => $this->input->post('metakeywords'),
+		'slug' => $slug,
+		'body' => $this->input->post('body')
+	);
+	$this->db->where('id',$id);
+	return $this->db->update('pages',$data);
+	}
+	
+	//DELETE PAGE
+	public function delete_page($id) {
+    $this->db->delete('pages', array('id' => $id));
+	}	
+	
 }

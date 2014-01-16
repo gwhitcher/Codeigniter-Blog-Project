@@ -24,7 +24,7 @@ $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false, deeplinking: false, 
 <script src="<?php echo base_url(); ?>js/tinymce/tinymce.min.js"></script>
 <script src="<?php echo base_url(); ?>js/tinymce/tinymce-global.js"></script>
 <?php } ?>
-<?php if($this->router->method == 'view') { ?>
+<?php if($this->router->method == 'blog_view') { ?>
 <link rel="image_src" href="<?php echo base_url(); ?>images/posts/<?php echo $article['featured']; ?>"/>
 <meta property="og:title" content="<?php echo $article['title']; ?>" />
 <meta property="og:url" content="<?php echo base_url(); ?>blog/<?php echo $article['slug']; ?>" />
@@ -38,10 +38,8 @@ $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false, deeplinking: false, 
 <h2><?php echo $this->config->item('sub_title'); ?></h2>
 </header>
 <nav>
-<a href="<?php echo base_url(); ?>">Home</a>
-<a href="<?php echo base_url(); ?>about">About</a>
-<a href="<?php echo base_url(); ?>category/projects">Projects</a>
-<a href="<?php echo base_url(); ?>category/portfolio">Portfolio</a>
-<a href="<?php echo base_url(); ?>contact">Contact</a>
+<?php foreach ($nav as $nav_item) { ?>
+<a href="<?php echo eval('?>' .$nav_item['url']. '<?php ');; ?>"><?php echo $nav_item['title']; ?></a>
+<?php } ?>
 </nav>
 <section>

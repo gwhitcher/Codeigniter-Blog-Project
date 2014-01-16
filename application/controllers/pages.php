@@ -1,30 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Pages extends CI_Controller {
-	public function about()
-	{
-		$data['title'] = 'About';
-		$sidebarquery = $this->db->order_by("position","asc");
-		$sidebarquery = $this->db->get('sidebar');
-		$data["sidebar"] = $sidebarquery->result_array();
-		$this->load->view('template/header', $data);
-		$this->load->view('template/sidebar', $data);
-		$this->load->view('about_view', $data);
-		$this->load->view('template/footer', $data);
-	}
-	
-	public function resume()
-	{
-		$data['title'] = 'Resume';
-		$sidebarquery = $this->db->order_by("position","asc");
-		$sidebarquery = $this->db->get('sidebar');
-		$data["sidebar"] = $sidebarquery->result_array();
-		$this->load->view('template/header', $data);
-		$this->load->view('template/sidebar', $data);
-		$this->load->view('resume_view', $data);
-		$this->load->view('template/footer', $data);
-	}
-	
+class Pages extends CI_Controller {	
 	//CONTACT
 	function contact()
 	{
@@ -79,6 +55,9 @@ class Pages extends CI_Controller {
      $data['username'] = $session_data['username'];
 	 $data['user_id'] = $session_data['id'];
 	 $data['title'] = 'Contact';
+	 $navquery = $this->db->order_by("position","asc");
+	 $navquery = $this->db->get('nav');
+	 $data["nav"] = $navquery->result_array();
 	 $sidebarquery = $this->db->order_by("position","asc");
 	 $sidebarquery = $this->db->get('sidebar');
 	 $data["sidebar"] = $sidebarquery->result_array();
@@ -99,5 +78,30 @@ class Pages extends CI_Controller {
 	$data["categories"] = $categoriesquery->result_array();
 	$data['title'] = 'Google Sitemap';
 	$this->load->view('google_view', $data);	
+	}
+	
+	//PAGE VIEW
+	public function page_view($slug)
+	{
+	$this->load->model('article_model');
+	$data['page'] = $slug;
+	$data['page'] = $this->article_model->get_pages($slug);
+	if (empty($data['page']))
+	{
+		show_404();
+	}
+	$data['title'] = ucfirst($data['page']['title']); // Capitalize the first letter
+	$data['metadescription'] = $data['page']['metadescription'];
+	$data['metakeywords'] = $data['page']['metakeywords'];
+	$navquery = $this->db->order_by("position","asc");
+	$navquery = $this->db->get('nav');
+	$data["nav"] = $navquery->result_array();
+	$sidebarquery = $this->db->order_by("position","asc");
+	$sidebarquery = $this->db->get('sidebar');
+	$data["sidebar"] = $sidebarquery->result_array();
+	$this->load->view('template/header', $data);
+	$this->load->view('template/sidebar', $data);
+	$this->load->view('page_view', $data);
+	$this->load->view('template/footer', $data);
 	}
 }

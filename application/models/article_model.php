@@ -28,4 +28,15 @@ class Article_model extends CI_Model {
 	return $query->row_array();
 	}
 	
+	public function get_pages($slug)
+	{
+	if ($slug === FALSE)
+	{
+		$query = $this->db->get('pages');
+		return $query->result_array();
+	}
+	$query = $this->db->get_where('pages', array('slug' => $slug));
+	return $query->row_array();
+	}
+	
 }

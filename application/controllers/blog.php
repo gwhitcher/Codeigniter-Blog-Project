@@ -23,6 +23,9 @@ class Blog extends CI_Controller {
 	$query = $this->db->get('articles', $config['per_page'], $this->uri->segment(3));
 	$data["articles"] = $query->result_array();
 	$data['title'] = 'Home';
+	$navquery = $this->db->order_by("position","asc");
+	$navquery = $this->db->get('nav');
+	$data["nav"] = $navquery->result_array();
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();
@@ -33,7 +36,7 @@ class Blog extends CI_Controller {
 	}
 
 	//LOAD ARTICLE
-	function view($slug)
+	function blog_view($slug)
 	{
 	$data['article'] = $slug;
 	$data['article'] = $this->article_model->get_articles($slug);
@@ -44,6 +47,9 @@ class Blog extends CI_Controller {
 	$data['metadescription'] = $data['article']['metadescription'];
 	$data['metakeywords'] = $data['article']['metakeywords'];
 	$data['title'] = $data['article']['title'];
+	$navquery = $this->db->order_by("position","asc");
+	$navquery = $this->db->get('nav');
+	$data["nav"] = $navquery->result_array();
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();
@@ -79,6 +85,9 @@ class Blog extends CI_Controller {
 	$data['metadescription'] = $data['category']['metadescription'];
 	$data['metakeywords'] = $data['category']['metakeywords'];
 	$data['title'] = $data['category']['title'];
+	$navquery = $this->db->order_by("position","asc");
+	$navquery = $this->db->get('nav');
+	$data["nav"] = $navquery->result_array();
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();
@@ -99,9 +108,12 @@ class Blog extends CI_Controller {
 	$this->load->view('rss_view', $data);	
 	}
 	
-	//RSS
+	//SEARCH
 	function search() {
 	$data['title'] = 'Search';
+	$navquery = $this->db->order_by("position","asc");
+	$navquery = $this->db->get('nav');
+	$data["nav"] = $navquery->result_array();
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2014 at 04:54 AM
+-- Generation Time: Jan 16, 2014 at 09:41 PM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
 
 --
 -- Dumping data for table `captcha`
@@ -166,7 +166,12 @@ INSERT INTO `captcha` (`captcha_id`, `captcha_time`, `ip_address`, `word`) VALUE
 (98, 1389124821, '192.168.1.108', 'fswKb8lZ'),
 (99, 1389834712, 'fe80::5c4:7336:8', '0HVxI2NP'),
 (100, 1389834758, 'fe80::5c4:7336:8', 'ojiJxbZS'),
-(101, 1389836514, 'fe80::5c4:7336:8', 'LGLYESGK');
+(101, 1389836514, 'fe80::5c4:7336:8', 'LGLYESGK'),
+(102, 1389902142, 'fe80::6168:9f8b:', 'JaRWpPTB'),
+(103, 1389902300, 'fe80::6168:9f8b:', 'aDh6e1cn'),
+(104, 1389904464, 'fe80::6168:9f8b:', 'sz7fPlBq'),
+(105, 1389904585, 'fe80::6168:9f8b:', 'w8RJO34G'),
+(106, 1389904832, 'fe80::6168:9f8b:', 'Mp32yYc9');
 
 -- --------------------------------------------------------
 
@@ -195,6 +200,56 @@ INSERT INTO `categories` (`id`, `title`, `slug`, `metadescription`, `metakeyword
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `nav`
+--
+
+CREATE TABLE IF NOT EXISTS `nav` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `url` text NOT NULL,
+  `position` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `nav`
+--
+
+INSERT INTO `nav` (`id`, `title`, `url`, `position`) VALUES
+(1, 'Home', '<?php echo base_url(); ?>', 1),
+(2, 'About', '<?php echo base_url(); ?>about', 2),
+(3, 'Projects', '<?php echo base_url(); ?>category/projects', 3),
+(4, 'Portfolio', '<?php echo base_url(); ?>category/portfolio', 4),
+(5, 'Contact', '<?php echo base_url(); ?>contact', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE IF NOT EXISTS `pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` text NOT NULL,
+  `slug` text NOT NULL,
+  `metadescription` text NOT NULL,
+  `metakeywords` text NOT NULL,
+  `body` text NOT NULL,
+  UNIQUE KEY `id_2` (`id`),
+  KEY `id` (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `pages`
+--
+
+INSERT INTO `pages` (`id`, `title`, `slug`, `metadescription`, `metakeywords`, `body`) VALUES
+(1, 'About', 'about', 'About the Codeigniter Blog Project written by Web Developer George Whitcher', 'Codeigniter, Blog, PHP, Open Source', '<p><?php echo $this->config->item(''title''); ?> is a blogging software built in PHP with  the <a href="http://ellislab.com/codeigniter" target="_blank">Codeigniter</a> framework by Web Developer <a href="http://www.georgewhitcher.com" target="_blank">George Whitcher</a>.</p>');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `sidebar`
 --
 
@@ -205,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `sidebar` (
   `position` int(11) NOT NULL,
   UNIQUE KEY `id_2` (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `sidebar`
