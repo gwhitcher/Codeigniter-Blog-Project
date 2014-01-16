@@ -87,4 +87,17 @@ class Pages extends CI_Controller {
      $this->load->view('contact_view', $data);
 	 $this->load->view('template/footer', $data);
    }
+   
+   	//GOOGLE
+	function google() {
+	$this->load->helper('xml');  
+    $this->load->helper('text');
+	$this->db->order_by("id","desc");
+	$articlesquery = $this->db->get('articles');
+	$data["articles"] = $articlesquery->result_array();
+	$categoriesquery = $this->db->get('categories');
+	$data["categories"] = $categoriesquery->result_array();
+	$data['title'] = 'Google Sitemap';
+	$this->load->view('google_view', $data);	
+	}
 }

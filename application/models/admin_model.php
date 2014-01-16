@@ -56,8 +56,10 @@ class Admin_model extends CI_Model
 	$this->upload->do_upload('featured');
 	$image_data = $this->upload->data();
 	$featured = $image_data['file_name'];
+	$date = date("Y-m-d\TH:i:sP");
 	$data = array(
 		'title' => $this->input->post('title'),
+		'date' => $date,
 		'metadescription' => $this->input->post('metadescription'),
 		'metakeywords' => $this->input->post('metakeywords'),
 		'category_id' => $this->input->post('category_id'),
@@ -95,9 +97,11 @@ class Admin_model extends CI_Model
 	$this->upload->do_upload('featured');
 	$image_data = $this->upload->data();
 	$featured = $image_data['file_name'];
+	$date = date("Y-m-d\TH:i:sP");
 	if (!empty($featured)) {
 	$data = array(
 		'title' => $this->input->post('title'),
+		'date' => $date,
 		'metadescription' => $this->input->post('metadescription'),
 		'metakeywords' => $this->input->post('metakeywords'),
 		'category_id' => $this->input->post('category_id'),
@@ -108,6 +112,7 @@ class Admin_model extends CI_Model
 	} else {
 	$data = array(
 		'title' => $this->input->post('title'),
+		'date' => $date,
 		'metadescription' => $this->input->post('metadescription'),
 		'metakeywords' => $this->input->post('metakeywords'),
 		'category_id' => $this->input->post('category_id'),
