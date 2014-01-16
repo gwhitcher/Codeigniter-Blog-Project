@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2014 at 02:01 AM
+-- Generation Time: Jan 16, 2014 at 03:10 AM
 -- Server version: 5.6.14
 -- PHP Version: 5.5.6
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=99 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
 
 --
 -- Dumping data for table `captcha`
@@ -162,7 +162,10 @@ INSERT INTO `captcha` (`captcha_id`, `captcha_time`, `ip_address`, `word`) VALUE
 (95, 1388952415, '192.168.1.106', 'EVHqMAb2'),
 (96, 1388964688, '192.168.1.106', 'sJvpaE0g'),
 (97, 1389124728, '192.168.1.108', 'HzmNDlEO'),
-(98, 1389124821, '192.168.1.108', 'fswKb8lZ');
+(98, 1389124821, '192.168.1.108', 'fswKb8lZ'),
+(99, 1389834712, 'fe80::5c4:7336:8', '0HVxI2NP'),
+(100, 1389834758, 'fe80::5c4:7336:8', 'ojiJxbZS'),
+(101, 1389836514, 'fe80::5c4:7336:8', 'LGLYESGK');
 
 -- --------------------------------------------------------
 
@@ -198,6 +201,7 @@ CREATE TABLE IF NOT EXISTS `sidebar` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` text NOT NULL,
   `body` text NOT NULL,
+  `position` int(11) NOT NULL,
   UNIQUE KEY `id_2` (`id`),
   KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
@@ -206,8 +210,8 @@ CREATE TABLE IF NOT EXISTS `sidebar` (
 -- Dumping data for table `sidebar`
 --
 
-INSERT INTO `sidebar` (`id`, `title`, `body`) VALUES
-(1, 'Categories', '<?php\r\n$query = $this->db->query("SELECT * FROM categories");\r\n\r\nforeach ($query->result_array() as $row)\r\n{\r\n   echo ''<li><a href="''.base_url().''category/''.$row[''slug''].''">''.$row[''title''].''</a></li>'';\r\n}\r\n?>');
+INSERT INTO `sidebar` (`id`, `title`, `body`, `position`) VALUES
+(1, 'Categories', '<?php\r\n$query = $this->db->query("SELECT * FROM categories");\r\n\r\nforeach ($query->result_array() as $row)\r\n{\r\n   echo ''<li><a href="''.base_url().''category/''.$row[''slug''].''">''.$row[''title''].''</a></li>'';\r\n}\r\n?>', 1);
 
 -- --------------------------------------------------------
 

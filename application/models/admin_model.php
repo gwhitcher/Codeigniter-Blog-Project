@@ -6,7 +6,8 @@ class Admin_model extends CI_Model
 	{
 	$data = array(
 		'title' => $this->input->post('title'),
-		'body' => $this->input->post('body')
+		'body' => $this->input->post('body'),
+		'position' => $this->input->post('position')
 	);
 	return $this->db->insert('sidebar', $data);
 	}
@@ -29,7 +30,8 @@ class Admin_model extends CI_Model
 	{
 	$data = array(
 		'title' => $this->input->post('title'),
-		'body' => $this->input->post('body')
+		'body' => $this->input->post('body'),
+		'position' => $this->input->post('position')
 	);
 	$this->db->where('id',$id);
 	return $this->db->update('sidebar',$data);

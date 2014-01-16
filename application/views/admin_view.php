@@ -31,6 +31,3 @@
   </tr>
 <?php } ?>
 </table>
-<div align="center">
-<a href="<?php echo base_url(); ?>logout">Logout</a>
-</div>
