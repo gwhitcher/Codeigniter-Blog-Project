@@ -47,7 +47,7 @@
 <table width="100%" border="0">
   <?php foreach ($pages as $page) { ?>
   <tr>
-    <td width="100%"><a href="<?php echo base_url(); ?>/<?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a></td>
+    <td width="100%"><a href="<?php echo base_url(); ?><?php echo $page['slug']; ?>"><?php echo $page['title']; ?></a></td>
     <td><a href="<?php echo base_url(); ?>admin/edit_page/<?php echo $page['id']; ?>">Edit</a></td>
     <td><a onClick="return confirm('Delete?')" href="<?php echo base_url(); ?>admin/delete_page/<?php echo $page['id']; ?>">Delete</a></td>
   </tr>

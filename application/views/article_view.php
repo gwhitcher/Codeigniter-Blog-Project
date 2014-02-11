@@ -1,5 +1,6 @@
+<article>
 <?php if (!empty($article['featured'])) { ?>
-<img id="featuredimg" src="<?php echo base_url(); ?>images/posts/<?php echo $article['featured']; ?>" />
+<img class="featuredimg" src="<?php echo base_url(); ?>images/posts/<?php echo $article['featured']; ?>" title="<?php echo $article['title']; ?>" alt="<?php echo $article['title']; ?>" />
 <?php } ?>
 <h2><?php echo $article['title']; ?></h2>
 <?php echo $article['body']; ?>
@@ -19,3 +20,4 @@
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
+</article>

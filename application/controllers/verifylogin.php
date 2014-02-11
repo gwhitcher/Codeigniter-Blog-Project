@@ -19,6 +19,9 @@ class VerifyLogin extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.  User redirected to login page
+	 $navquery = $this->db->order_by("position","asc");
+	 $navquery = $this->db->get('nav');
+	 $data["nav"] = $navquery->result_array();
 	 $this->load->view('template/header');
      $this->load->view('login_view');
 	 $this->load->view('template/footer');

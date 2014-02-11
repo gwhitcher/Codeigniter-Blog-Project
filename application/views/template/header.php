@@ -6,16 +6,16 @@
 <meta name="description" content="<?php if (!empty($metadescription)) { echo $metadescription; } else { echo $this->config->item('metadescription'); } ?>">
 <meta name="keywords" content="<?php if (!empty($metakeywords)) { echo $metakeywords; } else { echo $this->config->item('metakeywords'); } ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="Screen" />
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="handheld" /
-<link href="<?php echo base_url(); ?>css/ui-darkness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="handheld" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/ui-darkness/jquery-ui-1.10.3.custom.css" type="text/css" />
 <script src="<?php echo base_url(); ?>js/jqueryui/jquery-1.9.1.js" charset="utf-8"></script>
 <script src="<?php echo base_url(); ?>js/jqueryui/jquery-ui-1.10.3.custom.js"></script>
 <script src="<?php echo base_url(); ?>js/jqueryui/jquery-ui-all.js"></script>
-<link rel="stylesheet" href="<?php echo base_url(); ?>css/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
-<script src="<?php echo base_url(); ?>js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" charset="utf-8">
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/prettyPhoto.css" type="text/css" media="screen" />
+<script src="<?php echo base_url(); ?>js/jquery.prettyPhoto.js" type="text/javascript"></script>
+<script type="text/javascript">
 $(document).ready(function(){
 $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false, deeplinking: false, theme: 'dark_square',default_width: 800,default_height: 600,});
 });

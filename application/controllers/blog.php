@@ -71,7 +71,7 @@ class Blog extends CI_Controller {
 		show_404();
 	}			
 	$config['base_url'] = site_url('category/'.$slug.'/');
-	$this->db->where('slug', $slug);
+	$this->db->where('category_id', $data['category']['id']);
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
 	$config['per_page'] = 3;
 	$config['num_links'] = 5;

@@ -23,16 +23,18 @@
     <priority>0.9</priority>
   </url>
 <?php } ?>
+<?php foreach ($pages as $page) { ?> 
   <url>
-    <loc><?php echo base_url();?>about</loc>
+    <loc><?php echo base_url();?><?php echo $page['slug']; ?></loc>
     <lastmod><?php echo date("Y-m-d\TH:i:sP"); ?></lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
+<?php } ?>
   <url>
     <loc><?php echo base_url();?>contact</loc>
     <lastmod><?php echo date("Y-m-d\TH:i:sP"); ?></lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

@@ -164,23 +164,31 @@ section h2 a {
 section #featuredimg {
 	margin: 0 auto;
 	text-align: center;
+	display: block;
 }
 
 section p {
 	text-align: justify;
 }
 
-sidebar ul {
+article {
+	width: 600px;	
+	margin: 0 0 15px 10px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #CCC;
+}
+
+#sidebar ul {
 	padding: 0px 0px 0px 15px;
 	margin: 0px;
 }
 
-sidebar {
+#sidebar {
 	float: right;
 	width: 250px;
 }
 
-sidebar #sidebar_item {
+#sidebar .sidebar_item {
 	width: 230px;
 	background: #111;
     border: 1px solid #444;
@@ -192,34 +200,35 @@ sidebar #sidebar_item {
     padding: 5px 10px 5px 10px;
 }
 
-sidebar #sidebar_item h2 {
+#sidebar .sidebar_item h2 {
 	font-size: 22px;
 }
 
-sidebar #sidebar_item a {
+#sidebar .sidebar_item a {
 	color: #900;
 	text-decoration: none;
 }
 
-sidebar #sidebar_item a:hover {
+#sidebar .sidebar_item a:hover {
 	color: #FFF;
 	text-decoration: underline;
 }
 
-sidebar #sidebar_item p {
+#sidebar .sidebar_item p {
 	font-size: 14px;
 	text-align: center;
 	padding: 0px;
 	margin: 0px;	
 }
 
-sidebar #sidebar_item #followme img {
+#sidebar .sidebar_item #followme img {
 	padding: 3px;
 }
 
-sidebar #sidebar_item #nametagimage {
+#sidebar .sidebar_item #nametagimage {
 	padding: 5px;
 	color: #FFF;	
+	text-align: center;
 }
 
 footer {
@@ -234,7 +243,7 @@ footer {
 section #aboutimage {
 	float: right;
 	padding: 5px;
-	margin: 5px;
+	margin: 15px;
 	border: 1px #111 dashed;	
 }
 

@@ -72,6 +72,10 @@ class Pages extends CI_Controller {
 	$this->load->helper('xml');  
     $this->load->helper('text');
 	$this->db->order_by("id","desc");
+	$pagesquery = $this->db->get('pages');
+	$data["pages"] = $pagesquery->result_array();
+	$categoriesquery = $this->db->get('categories');
+	$this->db->order_by("id","desc");
 	$articlesquery = $this->db->get('articles');
 	$data["articles"] = $articlesquery->result_array();
 	$categoriesquery = $this->db->get('categories');

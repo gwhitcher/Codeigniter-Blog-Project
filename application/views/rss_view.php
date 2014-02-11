@@ -7,10 +7,13 @@
 <description><?php echo $this->config->item('sub_title'); ?></description>
 <?php foreach ($articles as $article) { ?> 
 <item>
-<title><?php echo $article['title']; ?></title>
+<title><?php $titlereplace = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $article['title']); echo $titlereplace; ?></title>
 <link><?php echo base_url(); ?>blog/<?php echo $article['slug']; ?></link>
 <guid><?php echo base_url(); ?>blog/<?php echo $article['slug']; ?></guid>
-<description><![CDATA[<?php $body = substr($article['body'],0,200); echo $body; ?>...]]></description>
+<description><![CDATA[<?php 
+$body = substr($article['body'],0,200); 
+$bodyreplace = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $body);
+echo strip_tags($bodyreplace); ?>...]]></description>
 </item>
 <?php } ?>
 </channel>
