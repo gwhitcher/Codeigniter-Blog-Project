@@ -17,7 +17,7 @@
 <?php } ?>
 <?php foreach ($articles as $article) { ?> 
   <url>
-    <loc><?php echo base_url();?>blog/<?php echo $article['slug']; ?></loc>
+    <loc><?php echo base_url();?>post/<?php echo $article['id']; ?>/<?php echo $article['slug']; ?></loc>
     <lastmod><?php echo $article['date']; ?></lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>

@@ -1,3 +1,6 @@
+<div id="full_page_wrapper">
+<div id="full_page_body">
+
 <h2>Add sidebar item</h2>
 <?php echo validation_errors(); ?>
 <?php echo form_open_multipart('admin/edit_sidebar/'.$sidebarid.'') ?>
@@ -35,3 +38,6 @@
 	<br />
 <input type="submit" name="submit" value="Add" />
 </form>
+
+</div>
+</div>

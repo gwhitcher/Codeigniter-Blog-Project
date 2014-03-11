@@ -1,3 +1,6 @@
+<div id="full_page_wrapper">
+<div id="full_page_body">
+
 <h2>Edit Page</h2>
 <a href="<?php echo base_url(); ?><?php echo $page['slug']; ?>">View page</a>
 <?php echo validation_errors(); ?>
@@ -20,3 +23,6 @@
     <br />
 <input type="submit" name="submit" value="Post" />
 </form>
+
+</div>
+</div>

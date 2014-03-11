@@ -1,3 +1,5 @@
+<div id="left_wrapper">
+<div id="page_body">
 <h2>Search</h2>
 <form method="post">
 Search: <input name="search" type="text">
@@ -12,3 +14,5 @@ foreach ($searcharticle->result() as $row) {
 }
 }
 ?>
+</div>
+</div>

@@ -1,3 +1,5 @@
+<div id="left_wrapper">
+<div id="page_body">
 <h2><?php echo $page['title']; ?></h2>
 <?php echo eval('?>' .$page['body']. '<?php '); ?>
 <div id="comments">
@@ -15,4 +17,6 @@
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+</div>
 </div>

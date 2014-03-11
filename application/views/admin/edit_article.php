@@ -1,3 +1,6 @@
+<div id="full_page_wrapper">
+<div id="full_page_body">
+
 <h2>Post article</h2>
 <a href="<?php echo base_url(); ?>blog/<?php echo $article['slug']; ?>">View page</a>
 <?php echo validation_errors(); ?>
@@ -43,3 +46,6 @@
 <input type="submit" name="submit" value="Post" />
 
 </form>
+
+</div>
+</div>

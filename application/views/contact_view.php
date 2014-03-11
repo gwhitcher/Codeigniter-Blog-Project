@@ -1,3 +1,5 @@
+<div id="left_wrapper">
+<div id="page_body">
 <h2>Contact</h2>
 <?php if (!empty($success)){?>
 <?php echo $success; ?>
@@ -14,7 +16,7 @@
 <label for="subject">Subject</label><br />
 <input type="input" name="subject" /><br />
 <label for="message">Message</label><br />
-<textarea name="message" cols="70" rows="10"></textarea><br />
+<textarea name="message" cols="60" rows="10"></textarea><br />
 <?php echo $captcha; ?><br />
 <input type="text" name="captcha" value="" /><br />
 <input type="submit" name="submit" value="Submit" /> 

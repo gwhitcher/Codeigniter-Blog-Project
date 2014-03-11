@@ -1,3 +1,5 @@
+<div id="full_page_wrapper">
+<div id="full_page_body">
 <?php echo validation_errors(); ?>
 <?php echo form_open('verifylogin'); ?>
  <label for="username">Username:</label>
@@ -8,3 +10,5 @@
  <br/>
  <input type="submit" value="Login"/>
  </form>
+ </div>
+ </div>

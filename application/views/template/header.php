@@ -20,6 +20,9 @@ $(document).ready(function(){
 $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false, deeplinking: false, theme: 'dark_square',default_width: 800,default_height: 600,});
 });
 </script>
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "d4dd2f87-22da-44a2-ad1c-548ebfbb3850", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 <?php if ($this->router->class == 'admin') { ?>
 <script src="<?php echo base_url(); ?>js/tinymce/tinymce.min.js"></script>
 <script src="<?php echo base_url(); ?>js/tinymce/tinymce-global.js"></script>
@@ -32,14 +35,19 @@ $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false, deeplinking: false, 
 <?php } ?>
 </head>
 <body>
-<div id="container">
 <header>
 <h1><a href="<?php echo base_url(); ?>"><?php echo $this->config->item('title'); ?></a></h1>
 <h2><?php echo $this->config->item('sub_title'); ?></h2>
 </header>
+<div id="container">
+<div id="nav_left">&nbsp;</div>
+<div id="menu_wrapper">
 <nav>
+<ul>
 <?php foreach ($nav as $nav_item) { ?>
-<a href="<?php echo eval('?>' .$nav_item['url']. '<?php ');; ?>"><?php echo $nav_item['title']; ?></a>
+<li><a href="<?php echo eval('?>' .$nav_item['url']. '<?php ');; ?>"><?php echo $nav_item['title']; ?></a></li>
 <?php } ?>
+</ul>
 </nav>
+<div id="nav_right">&nbsp;</div>
 <section>

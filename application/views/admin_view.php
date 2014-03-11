@@ -1,3 +1,5 @@
+<div id="full_page_wrapper">
+<div id="full_page_body">
 <h2>Welcome <?php echo $username; ?>!</h2>
 <strong><a href="<?php echo base_url(); ?>admin/add_nav">Add Nav</a></strong>
 <table width="100%" border="0">
@@ -5,7 +7,7 @@
   <tr>
     <td width="100%"><?php echo $nav_item['title']; ?></td>
     <td><a href="<?php echo base_url(); ?>admin/edit_nav/<?php echo $nav_item['id']; ?>">Edit</a></td>
-    <td><a onClick="return confirm('Delete?')" href="<?php echo base_url(); ?>admin/delete_article/<?php echo $nav_item['id']; ?>">Delete</a></td>
+    <td><a onClick="return confirm('Delete?')" href="<?php echo base_url(); ?>admin/delete_nav/<?php echo $nav_item['id']; ?>">Delete</a></td>
   </tr>
 <?php } ?>
 </table>
@@ -16,7 +18,7 @@
   <tr>
     <td width="100%"><?php echo $sidebar_item['title']; ?></td>
     <td><a href="<?php echo base_url(); ?>admin/edit_sidebar/<?php echo $sidebar_item['id']; ?>">Edit</a></td>
-    <td><a onClick="return confirm('Delete?')" href="<?php echo base_url(); ?>admin/delete_article/<?php echo $sidebar_item['id']; ?>">Delete</a></td>
+    <td><a onClick="return confirm('Delete?')" href="<?php echo base_url(); ?>admin/delete_sidebar/<?php echo $sidebar_item['id']; ?>">Delete</a></td>
   </tr>
 <?php } ?>
 </table>
@@ -25,7 +27,7 @@
 <table width="100%" border="0">
   <?php foreach ($articles as $article) { ?>
   <tr>
-    <td width="100%"><a href="<?php echo base_url(); ?>blog/<?php echo $article['slug']; ?>"><?php echo $article['title']; ?></a></td>
+    <td width="100%"><a href="<?php echo base_url(); ?>post/<?php echo $article['slug']; ?>"><?php echo $article['title']; ?></a></td>
     <td><a href="<?php echo base_url(); ?>admin/edit_article/<?php echo $article['id']; ?>">Edit</a></td>
     <td><a onClick="return confirm('Delete?')" href="<?php echo base_url(); ?>admin/delete_article/<?php echo $article['id']; ?>">Delete</a></td>
   </tr>
@@ -53,3 +55,5 @@
   </tr>
 <?php } ?>
 </table>
+</div>
+</div>

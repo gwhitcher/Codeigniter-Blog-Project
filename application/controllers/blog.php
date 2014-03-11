@@ -14,10 +14,12 @@ class Blog extends CI_Controller {
 				
 	$config['base_url'] = site_url('articles/index/');
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
-	$config['per_page'] = 3;
+	$config['per_page'] = 4;
 	$config['num_links'] = 5;
 	$config['full_tag_open'] = '<div id="pagination">';
 	$config['full_tag_close'] = '</div>';
+	$config['cur_tag_open'] = '<a class="current" href="#">';
+	$config['cur_tag_close'] = '</a>';
 	$this->pagination->initialize($config);
 	$this->db->order_by("id","desc");
 	$query = $this->db->get('articles', $config['per_page'], $this->uri->segment(3));
@@ -36,7 +38,7 @@ class Blog extends CI_Controller {
 	}
 
 	//LOAD ARTICLE
-	function blog_view($slug)
+	function blog_view($id, $slug)
 	{
 	$data['article'] = $slug;
 	$data['article'] = $this->article_model->get_articles($slug);
@@ -73,10 +75,12 @@ class Blog extends CI_Controller {
 	$config['base_url'] = site_url('category/'.$slug.'/');
 	$this->db->where('category_id', $data['category']['id']);
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
-	$config['per_page'] = 3;
+	$config['per_page'] = 4;
 	$config['num_links'] = 5;
 	$config['full_tag_open'] = '<div id="pagination">';
 	$config['full_tag_close'] = '</div>';
+	$config['cur_tag_open'] = '<a class="current" href="#">';
+	$config['cur_tag_close'] = '</a>';
 	$this->pagination->initialize($config);	
 	$this->db->order_by("id","desc");
 	$query = $this->db->where('category_id', $data['category']['id']);

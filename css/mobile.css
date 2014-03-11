@@ -2,17 +2,44 @@
 @media only screen and (max-width: 500px)
 {
 	#container {
-		width: 100%;
+		width: 320px;
 		padding: 0px;	
 	}
-	section {
-		width: 95%;
+	#menu_wrapper { 
+		width: 320px;
 	}
-	section img {
-		width: 100%;
+	#page_body {
+		width: 285px;
+		float: left;
 	}
-	sidebar {
+	nav{
+		width: 316px;
+		height: auto;	
+	}
+	article {
+		float: left;
+		width: 285px;	
+	}
+	article img {
+		max-width: 285px;	
+	}
+	article .featuredimg {
+		width: 285px;
+	}
+	.readmore {
+		width: 285px;	
+	}
+	#comments {
+		width: 285px;
+	}
+	#pagination {
+		float: left;
+	}
+	#right_wrapper {
 		display: none;
+	}
+	.bottom_shadow {
+		width: 320px;
 	}
 	footer {
 		padding: 5px;
