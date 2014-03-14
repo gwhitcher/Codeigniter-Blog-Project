@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/style.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="Screen" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/mobile.css" type="text/css" media="handheld" />
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/print.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo base_url(); ?>css/ui-darkness/jquery-ui-1.10.3.custom.css" type="text/css" />
 <script src="<?php echo base_url(); ?>js/jqueryui/jquery-1.9.1.js" charset="utf-8"></script>
 <script src="<?php echo base_url(); ?>js/jqueryui/jquery-ui-1.10.3.custom.js"></script>
@@ -51,3 +52,21 @@ $("a[rel^='prettyPhoto']").prettyPhoto({social_tools:false, deeplinking: false, 
 </nav>
 <div id="nav_right">&nbsp;</div>
 <section>
+<?php if ($this->router->method == 'index' && $this->router->class == 'blog') { ?>
+<link rel="stylesheet" href="<?php echo base_url(); ?>css/flexslider.css" type="text/css" />
+<script src="<?php echo base_url(); ?>js/jquery.flexslider-min.js" charset="utf-8"></script>
+<script type="text/javascript">
+$(window).load(function() {
+  $('.flexslider').flexslider({
+    animation: "slide"
+  });
+});
+</script>
+<div class="flexslider">
+  <ul class="slides">
+  <?php foreach ($slider as $slider_item) { ?>
+  <li><a href="<?php echo base_url(); ?>post/<?php echo $slider_item['id']; ?>/<?php echo $slider_item['slug']; ?>"><img src="<?php echo base_url(); ?>images/posts/<?php echo $slider_item['featured']; ?>" title="<?php echo $slider_item['title']; ?>" alt="<?php echo $slider_item['title']; ?>" /></a></li>
+  <?php } ?>
+  </ul>
+</div>
+<?php } ?>

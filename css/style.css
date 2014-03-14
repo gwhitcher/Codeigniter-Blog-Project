@@ -24,7 +24,7 @@ body {
 	height:auto;
 	background:url(../images/theme/georgewhitcher/bg.jpg) no-repeat center top;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
+	font-size:14px;
 	color:#666;
 }
 
@@ -346,14 +346,13 @@ nav li ul li a:hover {
 /* ARTICLE */
 
 article {
-	width:565px;
 	background:#fff;
 	border:3px solid #25394a;
 	border-radius: 10px;
 	margin:0px 0px 30px 0px;
 	-webkit-box-shadow:  0px 2px 5px 2px rgba(0, 0, 0, 0.5);  
     box-shadow:  0px 2px 5px 2px rgba(0, 0, 0, 0.5);
-	margin: 15px auto;
+	margin: 15px;
 	padding: 15px;
 }
 
@@ -629,14 +628,13 @@ footer {
 /* PAGES */
 
 #page_body {
-	width:565px;
 	background:#fff;
 	border:3px solid #25394a;
 	border-radius: 10px;
 	margin:0px 0px 30px 0px;
 	-webkit-box-shadow:  0px 2px 5px 2px rgba(0, 0, 0, 0.5);  
     box-shadow:  0px 2px 5px 2px rgba(0, 0, 0, 0.5);
-	margin: 15px auto;
+	margin: 15px;
 	padding: 15px;
 }
 

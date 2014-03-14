@@ -1,0 +1,38 @@
+@media print {
+	#sidebar {display: none;}
+   
+	#container {
+		visibility: hidden;
+		width: 100%;
+	}
+	
+	#menu_wrapper {visibility: hidden;}
+	
+	#left_wrapper {visibility: hidden;}
+	
+	#right_wrapper {visibility: hidden;}
+	
+	article {
+		margin: auto;  
+ 		position: absolute;
+		left:0;
+		right: 0;
+		visibility: visible;
+		z-index: 99;
+		top: 140px;	
+	}
+	
+	#page_body {
+		margin: auto;  
+ 		position: absolute;
+		left:0;
+		right: 0;
+		visibility: visible;
+		z-index: 99;
+		top: 140px;	
+	}
+	
+	#comments {display: none;}
+	
+	footer {display: none;}
+}

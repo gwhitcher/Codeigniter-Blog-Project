@@ -41,6 +41,14 @@
 	<input type="file" name="featured" />
 	<br />
     
+    <label for="slider">Add to slider?</label>
+    <br />
+	<select name="slider">
+		<option value="0">No</option>  
+        <option value="1">Yes</option>
+	</select>
+	<br />
+    
     
 
 <input type="submit" name="submit" value="Post" />

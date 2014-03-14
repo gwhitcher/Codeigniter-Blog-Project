@@ -30,6 +30,9 @@ class Blog extends CI_Controller {
 	$data["nav"] = $navquery->result_array();
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
+	$sliderquery = $this->db->order_by("id","desc");
+	$sliderquery = $this->db->get_where('articles', array('slider' => 1), 5);
+	$data["slider"] = $sliderquery->result_array();
 	$data["sidebar"] = $sidebarquery->result_array();
 	$this->load->view('template/header', $data);
 	$this->load->view('template/sidebar', $data);

@@ -42,6 +42,14 @@
     <br />
 	<input name="featured" title="featured" type="file" value="<?php echo $article['featured']; ?>" />
     <br />
+    
+    <label for="slider">Add to slider?</label>
+    <br />
+	<select name="slider">
+		<option value="0" <?php if ($article['slider'] == 0) { echo 'selected=selected'; } ?>>No</option>  
+        <option value="1" <?php if ($article['slider'] == 1) { echo 'selected=selected'; } ?>>Yes</option>
+	</select>
+	<br />
 
 <input type="submit" name="submit" value="Post" />
 

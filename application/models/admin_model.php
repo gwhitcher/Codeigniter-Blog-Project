@@ -106,6 +106,7 @@ class Admin_model extends CI_Model
 		'category_id' => $this->input->post('category_id'),
 		'slug' => $slug,
 		'body' => $this->input->post('body'),
+		'slider' => $this->input->post('slider'),
 		'featured' => $featured
 	);
 	return $this->db->insert('articles', $data);
@@ -148,6 +149,7 @@ class Admin_model extends CI_Model
 		'category_id' => $this->input->post('category_id'),
 		'slug' => $slug,
 		'body' => $this->input->post('body'),
+		'slider' => $this->input->post('slider'),
 		'featured' => $featured
 	);
 	} else {
@@ -158,6 +160,7 @@ class Admin_model extends CI_Model
 		'metakeywords' => $this->input->post('metakeywords'),
 		'category_id' => $this->input->post('category_id'),
 		'slug' => $slug,
+		'slider' => $this->input->post('slider'),
 		'body' => $this->input->post('body')
 	);
 	}
