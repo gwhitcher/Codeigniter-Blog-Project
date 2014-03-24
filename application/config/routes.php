@@ -50,22 +50,31 @@ $route['search'] = "blog/search";
 $route['category/(:any)'] = 'blog/category/$1';
 $route['post/(:num)/(:any)'] = 'blog/blog_view/$1/$2';
 $route['articles/(:any)'] = 'blog/index/$1';
+
+$route['admin/articles'] = 'admin/articles';
 $route['admin/add_article'] = 'admin/add_article';
 $route['admin/edit_article/(:any)'] = 'admin/edit_article/$1';
 $route['admin/delete_article/(:any)'] = 'admin/delete_article/$1';
+$route['admin/categories'] = 'admin/categories';
 $route['admin/add_category'] = 'admin/add_category';
 $route['admin/edit_category/(:any)'] = 'admin/edit_category/$1';
 $route['admin/delete_category/(:any)'] = 'admin/delete_category/$1';
+$route['admin/sidebar'] = 'admin/sidebar';
 $route['admin/add_sidebar'] = 'admin/add_sidebar';
 $route['admin/edit_sidebar/(:any)'] = 'admin/edit_sidebar/$1';
 $route['admin/delete_sidebar/(:any)'] = 'admin/delete_sidebar/$1';
+$route['admin/nav'] = 'admin/nav';
+$route['admin/nav/(:any)'] = 'admin/nav/$1';
 $route['admin/add_nav'] = 'admin/add_nav';
 $route['admin/edit_nav/(:any)'] = 'admin/edit_nav/$1';
 $route['admin/delete_nav/(:any)'] = 'admin/delete_nav/$1';
+$route['admin/pages'] = 'admin/pages';
 $route['admin/add_page'] = 'admin/add_page';
 $route['admin/edit_page/(:any)'] = 'admin/edit_page/$1';
 $route['admin/delete_page/(:any)'] = 'admin/delete_page/$1';
+
 $route['(:any)'] = 'pages/page_view/$1';
+
 $route['404_override'] = '';
 
 

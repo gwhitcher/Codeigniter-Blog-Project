@@ -2,14 +2,17 @@
 @media only screen and (max-width: 500px)
 {
 	#container {
-		width: 320px;
+		max-width: 320px;
 		padding: 0px;	
 	}
+	.flexslider img {
+		width: 285px;	
+	}
 	#menu_wrapper { 
-		width: 320px;
+		max-width: 320px;
 	}
 	#page_body {
-		width: 285px;
+		max-width: 285px;
 		float: left;
 	}
 	nav{
@@ -18,19 +21,19 @@
 	}
 	article {
 		float: left;
-		width: 285px;	
+		max-width: 255px;	
 	}
 	article img {
-		max-width: 285px;	
+		max-width: 255px;	
 	}
 	article .featuredimg {
-		width: 285px;
+		max-width: 255px;
 	}
 	.readmore {
-		width: 285px;	
+		max-width: 255px;	
 	}
 	#comments {
-		width: 285px;
+		max-width: 255px;
 	}
 	#pagination {
 		float: left;

@@ -1,6 +1,3 @@
-<div id="full_page_wrapper">
-<div id="full_page_body">
-
 <h2>Add Sidebar</h2>
 
 <?php echo validation_errors(); ?>
@@ -42,5 +39,3 @@
 <input type="submit" name="submit" value="Post" />
 
 </form>
-</div>
-</div>

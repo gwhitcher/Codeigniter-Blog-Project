@@ -13,9 +13,9 @@ class Login extends CI_Controller {
    $navquery = $this->db->order_by("position","asc");
    $navquery = $this->db->get('nav');
    $data["nav"] = $navquery->result_array();
-   $this->load->view('template/header', $data);
+   $this->load->view('template/'.$this->config->item('theme').'/header', $data);
    $this->load->view('login_view', $data);
-   $this->load->view('template/footer', $data);
+   $this->load->view('template/'.$this->config->item('theme').'/footer', $data);
  }
 
 }

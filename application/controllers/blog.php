@@ -5,13 +5,14 @@ class Blog extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('article_model');
+		$this->load->config('config', true);
 	}
 
 	//HOME
 	public function index()
 	{
 	$this->load->library('pagination');
-				
+			
 	$config['base_url'] = site_url('articles/index/');
 	$config['total_rows'] = $this->db->get('articles')->num_rows();
 	$config['per_page'] = 4;
@@ -34,10 +35,10 @@ class Blog extends CI_Controller {
 	$sliderquery = $this->db->get_where('articles', array('slider' => 1), 5);
 	$data["slider"] = $sliderquery->result_array();
 	$data["sidebar"] = $sidebarquery->result_array();
-	$this->load->view('template/header', $data);
-	$this->load->view('template/sidebar', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/header', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/sidebar', $data);
 	$this->load->view('index_view', $data);
-	$this->load->view('template/footer');
+	$this->load->view('/template/'.$this->config->item('theme').'/footer');
 	}
 
 	//LOAD ARTICLE
@@ -58,10 +59,10 @@ class Blog extends CI_Controller {
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();
-	$this->load->view('template/header', $data);
-	$this->load->view('template/sidebar', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/header', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/sidebar', $data);
 	$this->load->view('article_view', $data);
-	$this->load->view('template/footer');
+	$this->load->view('/template/'.$this->config->item('theme').'/footer');
 	}
 	
 	//LOAD CATEGORY
@@ -98,10 +99,10 @@ class Blog extends CI_Controller {
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();
-	$this->load->view('template/header', $data);
-	$this->load->view('template/sidebar', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/header', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/sidebar', $data);
 	$this->load->view('category_view', $data);
-	$this->load->view('template/footer', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/footer');
 	}
 	
 	//RSS
@@ -124,10 +125,10 @@ class Blog extends CI_Controller {
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();
-	$this->load->view('template/header', $data);
-	$this->load->view('template/sidebar', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/header', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/sidebar', $data);
 	$this->load->view('search_view', $data);
-	$this->load->view('template/footer', $data);	
+	$this->load->view('/template/'.$this->config->item('theme').'/footer');	
 	}
 	
 }

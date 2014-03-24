@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Pages extends CI_Controller {	
 	//CONTACT
 	function contact()
@@ -61,10 +60,10 @@ class Pages extends CI_Controller {
 	 $sidebarquery = $this->db->order_by("position","asc");
 	 $sidebarquery = $this->db->get('sidebar');
 	 $data["sidebar"] = $sidebarquery->result_array();
-	 $this->load->view('template/header', $data);
-	 $this->load->view('template/sidebar', $data);
+	 $this->load->view('/template/'.$this->config->item('theme').'/header', $data);
+	 $this->load->view('/template/'.$this->config->item('theme').'/sidebar', $data);
      $this->load->view('contact_view', $data);
-	 $this->load->view('template/footer', $data);
+	 $this->load->view('/template/'.$this->config->item('theme').'/footer');
    }
    
    	//GOOGLE
@@ -103,9 +102,9 @@ class Pages extends CI_Controller {
 	$sidebarquery = $this->db->order_by("position","asc");
 	$sidebarquery = $this->db->get('sidebar');
 	$data["sidebar"] = $sidebarquery->result_array();
-	$this->load->view('template/header', $data);
-	$this->load->view('template/sidebar', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/header', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/sidebar', $data);
 	$this->load->view('page_view', $data);
-	$this->load->view('template/footer', $data);
+	$this->load->view('/template/'.$this->config->item('theme').'/footer');
 	}
 }

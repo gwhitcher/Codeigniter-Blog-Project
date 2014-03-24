@@ -16,31 +16,68 @@ class Admin extends CI_Controller {
      $data['username'] = $session_data['username'];
 	 //LOAD NAV
 	 $query = $this->db->order_by("position","asc");
-	 $query = $this->db->get('nav');
+	 $query = $this->db->get('nav', 5);
 	 $data["nav"] = $query->result_array();
 	 //LOAD SIDEBAR
 	 $query = $this->db->order_by("position","asc");
-	 $query = $this->db->get('sidebar');
+	 $query = $this->db->get('sidebar', 5);
 	 $data["sidebar"] = $query->result_array();
 	 //LOAD ARTICLES
 	 $query = $this->db->order_by("id","desc");
-	 $query = $this->db->get('articles');
+	 $query = $this->db->get('articles', 5);
 	 $data["articles"] = $query->result_array();
 	 //LOAD CATEGORIES
 	 $query = $this->db->order_by("id","desc");
-	 $query = $this->db->get('categories');
+	 $query = $this->db->get('categories', 5);
 	 $data["categories"] = $query->result_array();
 	 //LOAD PAGES
 	 $query = $this->db->order_by("id","desc");
-	 $query = $this->db->get('pages');
+	 $query = $this->db->get('pages', 5);
 	 $data["pages"] = $query->result_array();
-	 $this->load->view('template/header', $data);
-     $this->load->view('admin_view', $data);
-	 $this->load->view('template/footer', $data);
+	 $this->load->view('admin/template/header', $data);
+     $this->load->view('admin/admin_view', $data);
+	 $this->load->view('admin/template/footer', $data);
 	}
 	else
 	{
      redirect('login', 'refresh');
+	}
+	}
+	
+	/* NAV */
+	public function nav()
+	{
+	if($this->session->userdata('logged_in'))
+	{
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	$this->load->library('pagination');
+	$config['base_url'] = site_url('admin/nav/');
+	$config['total_rows'] = $this->db->get('nav')->num_rows();
+	$config['per_page'] = 30;
+	$config['num_links'] = 5;
+	$config['full_tag_open'] = '<div id="pagination">';
+	$config['full_tag_close'] = '</div>';
+	$config['cur_tag_open'] = '<a class="current" href="#">';
+	$config['cur_tag_close'] = '</a>';
+	$this->pagination->initialize($config);
+	$this->db->order_by("position","asc");
+	$searchterm = $this->input->post('search',TRUE);
+	if (!empty($searchterm)) {
+	$this->db->like('title', $searchterm); 
+	}
+	$query = $this->db->get('nav', $config['per_page'], $this->uri->segment(3));
+	$data["nav"] = $query->result_array();
+	$session_data = $this->session->userdata('logged_in');
+	$data['username'] = $session_data['username'];
+		if ($this->form_validation->run() === FALSE)
+		{
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/nav', $data);
+		$this->load->view('admin/template/footer', $data);
+		}
+	} else {
+		redirect('login', 'refresh');
 	}
 	}
 	
@@ -61,9 +98,9 @@ class Admin extends CI_Controller {
 	$data["nav"] = $navquery->result_array();
 	if ($this->form_validation->run() === FALSE)
 	{
-		$this->load->view('template/header', $data);
+		$this->load->view('admin/template/header', $data);
 		$this->load->view('admin/add_nav', $data);
-		$this->load->view('template/footer', $data);
+		$this->load->view('admin/template/footer', $data);
 	}
 	else
 	{
@@ -102,9 +139,9 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header',$data);
+	$this->load->view('admin/template/header',$data);
 	$this->load->view('admin/edit_nav',$data);
-	$this->load->view('template/footer',$data);
+	$this->load->view('admin/template/footer',$data);
 	} else  {
 		redirect('login', 'refresh');
 	}
@@ -122,10 +159,47 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header', $data);
+	$this->load->view('admin/template/header', $data);
 	$this->load->view('admin/delete_nav', $data);
-	$this->load->view('template/footer');
+	$this->load->view('admin/template/footer');
 	} else  {
+		redirect('login', 'refresh');
+	}
+	}
+	
+	/* SIDEBAR */
+	public function sidebar()
+	{
+	if($this->session->userdata('logged_in'))
+	{
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	$this->load->library('pagination');	
+	$config['base_url'] = site_url('admin/sidebar/');
+	$config['total_rows'] = $this->db->get('sidebar')->num_rows();
+	$config['per_page'] = 30;
+	$config['num_links'] = 5;
+	$config['full_tag_open'] = '<div id="pagination">';
+	$config['full_tag_close'] = '</div>';
+	$config['cur_tag_open'] = '<a class="current" href="#">';
+	$config['cur_tag_close'] = '</a>';
+	$this->pagination->initialize($config);
+	$this->db->order_by("position","asc");
+	$searchterm = $this->input->post('search',TRUE);
+	if (!empty($searchterm)) {
+	$this->db->like('title', $searchterm); 
+	}
+	$query = $this->db->get('sidebar', $config['per_page'], $this->uri->segment(3));
+	$data["sidebar"] = $query->result_array();
+	$session_data = $this->session->userdata('logged_in');
+	$data['username'] = $session_data['username'];
+		if ($this->form_validation->run() === FALSE)
+		{
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/sidebar', $data);
+		$this->load->view('admin/template/footer', $data);
+		}
+	} else {
 		redirect('login', 'refresh');
 	}
 	}
@@ -147,9 +221,9 @@ class Admin extends CI_Controller {
 	$data["nav"] = $navquery->result_array();
 	if ($this->form_validation->run() === FALSE)
 	{
-		$this->load->view('template/header', $data);
+		$this->load->view('admin/template/header', $data);
 		$this->load->view('admin/add_sidebar', $data);
-		$this->load->view('template/footer', $data);
+		$this->load->view('admin/template/footer', $data);
 	}
 	else
 	{
@@ -188,9 +262,9 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header',$data);
+	$this->load->view('admin/template/header',$data);
 	$this->load->view('admin/edit_sidebar',$data);
-	$this->load->view('template/footer',$data);
+	$this->load->view('admin/template/footer',$data);
 	} else  {
 		redirect('login', 'refresh');
 	}
@@ -208,10 +282,47 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header', $data);
+	$this->load->view('admin/template/header', $data);
 	$this->load->view('admin/delete_sidebar', $data);
-	$this->load->view('template/footer');
+	$this->load->view('admin/template/footer');
 	} else  {
+		redirect('login', 'refresh');
+	}
+	}
+	
+	/* ARTICLE */
+	public function articles()
+	{
+	if($this->session->userdata('logged_in'))
+	{
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	$this->load->library('pagination');	
+	$config['base_url'] = site_url('admin/articles/');
+	$config['total_rows'] = $this->db->get('articles')->num_rows();
+	$config['per_page'] = 30;
+	$config['num_links'] = 5;
+	$config['full_tag_open'] = '<div id="pagination">';
+	$config['full_tag_close'] = '</div>';
+	$config['cur_tag_open'] = '<a class="current" href="#">';
+	$config['cur_tag_close'] = '</a>';
+	$this->pagination->initialize($config);
+	$this->db->order_by("id","desc");
+	$searchterm = $this->input->post('search',TRUE);
+	if (!empty($searchterm)) {
+	$this->db->like('title', $searchterm); 
+	}
+	$query = $this->db->get('articles', $config['per_page'], $this->uri->segment(3));
+	$data["articles"] = $query->result_array();
+	$session_data = $this->session->userdata('logged_in');
+	$data['username'] = $session_data['username'];
+		if ($this->form_validation->run() === FALSE)
+		{
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/articles', $data);
+		$this->load->view('admin/template/footer', $data);
+		}
+	} else {
 		redirect('login', 'refresh');
 	}
 	}
@@ -235,9 +346,9 @@ class Admin extends CI_Controller {
 	$data["nav"] = $navquery->result_array();
 	if ($this->form_validation->run() === FALSE)
 	{
-		$this->load->view('template/header', $data);
+		$this->load->view('admin/template/header', $data);
 		$this->load->view('admin/add_article', $data);
-		$this->load->view('template/footer', $data);
+		$this->load->view('admin/template/footer', $data);
 	}
 	else
 	{
@@ -278,9 +389,9 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header',$data);
+	$this->load->view('admin/template/header',$data);
 	$this->load->view('admin/edit_article',$data);
-	$this->load->view('template/footer',$data);
+	$this->load->view('admin/template/footer',$data);
 	} else  {
 		redirect('login', 'refresh');
 	}
@@ -298,10 +409,47 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header', $data);
+	$this->load->view('admin/template/header', $data);
 	$this->load->view('admin/delete_article', $data);
-	$this->load->view('template/footer');
+	$this->load->view('admin/template/footer');
 	} else  {
+		redirect('login', 'refresh');
+	}
+	}
+	
+	/* CATEGORIES */
+	public function categories()
+	{
+	if($this->session->userdata('logged_in'))
+	{
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	$this->load->library('pagination');	
+	$config['base_url'] = site_url('admin/categories/');
+	$config['total_rows'] = $this->db->get('articles')->num_rows();
+	$config['per_page'] = 30;
+	$config['num_links'] = 5;
+	$config['full_tag_open'] = '<div id="pagination">';
+	$config['full_tag_close'] = '</div>';
+	$config['cur_tag_open'] = '<a class="current" href="#">';
+	$config['cur_tag_close'] = '</a>';
+	$this->pagination->initialize($config);
+	$this->db->order_by("id","desc");
+	$searchterm = $this->input->post('search',TRUE);
+	if (!empty($searchterm)) {
+	$this->db->like('title', $searchterm); 
+	}
+	$query = $this->db->get('categories', $config['per_page'], $this->uri->segment(3));
+	$data["categories"] = $query->result_array();
+	$session_data = $this->session->userdata('logged_in');
+	$data['username'] = $session_data['username'];
+		if ($this->form_validation->run() === FALSE)
+		{
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/categories', $data);
+		$this->load->view('admin/template/footer', $data);
+		}
+	} else {
 		redirect('login', 'refresh');
 	}
 	}
@@ -321,9 +469,9 @@ class Admin extends CI_Controller {
 	$data["nav"] = $navquery->result_array();
 	if ($this->form_validation->run() === FALSE)
 	{
-		$this->load->view('template/header', $data);
+		$this->load->view('admin/template/header', $data);
 		$this->load->view('admin/add_category');
-		$this->load->view('template/footer');
+		$this->load->view('admin/template/footer');
 
 	}
 	else
@@ -362,15 +510,15 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header',$data);
+	$this->load->view('admin/template/header',$data);
 	$this->load->view('admin/edit_category',$data);
-	$this->load->view('template/footer',$data);
+	$this->load->view('admin/template/footer',$data);
 	} else  {
 		redirect('login', 'refresh');
 	}
 	}
 	
-	//DELETE ARTICLE
+	//DELETE CATEGORY
 	public function delete_category($id) {
 	if($this->session->userdata('logged_in'))
 	{
@@ -381,10 +529,47 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header', $data);
+	$this->load->view('admin/template/header', $data);
 	$this->load->view('admin/delete_category', $data);
-	$this->load->view('template/footer');
+	$this->load->view('admin/template/footer');
 	} else  {
+		redirect('login', 'refresh');
+	}
+	}
+	
+	/* PAGES */
+	public function pages()
+	{
+	if($this->session->userdata('logged_in'))
+	{
+	$this->load->helper('form');
+	$this->load->library('form_validation');
+	$this->load->library('pagination');	
+	$config['base_url'] = site_url('admin/pages/');
+	$config['total_rows'] = $this->db->get('pages')->num_rows();
+	$config['per_page'] = 30;
+	$config['num_links'] = 5;
+	$config['full_tag_open'] = '<div id="pagination">';
+	$config['full_tag_close'] = '</div>';
+	$config['cur_tag_open'] = '<a class="current" href="#">';
+	$config['cur_tag_close'] = '</a>';
+	$this->pagination->initialize($config);
+	$this->db->order_by("id","desc");
+	$searchterm = $this->input->post('search',TRUE);
+	if (!empty($searchterm)) {
+	$this->db->like('title', $searchterm); 
+	}
+	$query = $this->db->get('pages', $config['per_page'], $this->uri->segment(3));
+	$data["pages"] = $query->result_array();
+	$session_data = $this->session->userdata('logged_in');
+	$data['username'] = $session_data['username'];
+		if ($this->form_validation->run() === FALSE)
+		{
+		$this->load->view('admin/template/header', $data);
+		$this->load->view('admin/pages', $data);
+		$this->load->view('admin/template/footer', $data);
+		}
+	} else {
 		redirect('login', 'refresh');
 	}
 	}
@@ -446,9 +631,9 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header',$data);
+	$this->load->view('admin/template/header',$data);
 	$this->load->view('admin/edit_page',$data);
-	$this->load->view('template/footer',$data);
+	$this->load->view('admin/template/footer',$data);
 	} else  {
 		redirect('login', 'refresh');
 	}
@@ -466,9 +651,9 @@ class Admin extends CI_Controller {
 	$navquery = $this->db->order_by("position","asc");
 	$navquery = $this->db->get('nav');
 	$data["nav"] = $navquery->result_array();
-	$this->load->view('template/header', $data);
+	$this->load->view('admin/template/header', $data);
 	$this->load->view('admin/delete_page', $data);
-	$this->load->view('template/footer');
+	$this->load->view('admin/template/footer');
 	} else  {
 		redirect('login', 'refresh');
 	}
@@ -479,7 +664,7 @@ class Admin extends CI_Controller {
 	{
 	$this->session->unset_userdata('logged_in');
 	session_destroy();
-	redirect('', 'refresh');
+	redirect('login', 'refresh');
 	}
 }
 ?>

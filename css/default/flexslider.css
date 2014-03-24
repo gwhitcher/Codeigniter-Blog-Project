@@ -25,20 +25,44 @@
 /* Font-face Icons */
 @font-face {
 	font-family: 'flexslider-icon';
-	src:url('../images/fonts/flexslider-icon.eot');
-	src:url('../images/fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
-		url('../images/fonts/flexslider-icon.woff') format('woff'),
-		url('../images/fonts/flexslider-icon.ttf') format('truetype'),
-		url('../images/fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+	src:url('../../images/fonts/flexslider-icon.eot');
+	src:url('../../images/fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
+		url('../../images/fonts/flexslider-icon.woff') format('woff'),
+		url('../../images/fonts/flexslider-icon.ttf') format('truetype'),
+		url('../../images/fonts/flexslider-icon.svg#flexslider-icon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 /* FlexSlider Necessary Styles
 *********************************/
-.flexslider {margin: 0; padding: 0; background:#fff; height: auto; overflow: hidden;}
+.flexslider {
+	margin: 0;
+	padding: 5px 15px 15px 15px;
+	background: url(../../images/theme/default/slider_bg_loop.jpg) repeat top left;
+	border:1px solid #23313c;
+	-moz-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-webkit-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.flexslider h3{
+	text-shadow: 0px 1px 3px rgba(0, 0, 0, 1);
+	font-family:'Oswald', Helvetica,  Arial, sans-serif;
+	color:#fff;
+	display:block;
+	width:580px;
+	font-size:14px;
+	font-weight:700;
+	text-transform:uppercase;
+	padding:7px 0px 10px 25px;
+	background:url(../../images/theme/georgewhitcher/hbullet.png) left top no-repeat;
+	margin:0px 0px 0px 0px;
+	clear: both;
+}
+
 .flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides img {width: 100%; display: block;}
+.flexslider .slides img {display: block; border-radius: 5px; border: 1px solid #1c98ff; max-width: 920px; margin: 0 auto;}
 .flex-pauseplay span {text-transform: capitalize;}
 
 /* Clearfix for the .slides element */
@@ -61,7 +85,7 @@ html[xmlns] .slides {display: block;}
 
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
-.flex-direction-nav a  { display: block; width: 40px; height: 40px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 0; cursor: pointer; color: rgba(0,0,0,0.8); text-shadow: 1px 1px 0 rgba(255,255,255,0.3); -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; }
+.flex-direction-nav a  { display: block; width: 40px; height: 40px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 0; cursor: pointer; color: #1c98ff; text-shadow: 1px 1px 0 rgba(255,255,255,0.3); -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; }
 .flex-direction-nav .flex-prev { left: -50px; }
 .flex-direction-nav .flex-next { right: -50px; text-align: right; }
 .flexslider:hover .flex-prev { opacity: 0.7; left: 10px; }

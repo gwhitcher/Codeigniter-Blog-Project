@@ -13,7 +13,7 @@
 	background:#2AC0FF;color:#fff
 }
 html {
-	background:url(../images/theme/georgewhitcher/background_loop.jpg) repeat top left;
+	background:url(../../images/theme/default/background_loop.jpg) repeat top left;
 	padding:0;
 	margin:0;
 }
@@ -22,7 +22,7 @@ body {
 	padding:0;
 	width:auto;
 	height:auto;
-	background:url(../images/theme/georgewhitcher/bg.jpg) no-repeat center top;
+	background:url(../../images/theme/default/bg.jpg) no-repeat center top;
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:14px;
 	color:#666;
@@ -58,7 +58,7 @@ h1,h2,h3,h4,h5,h6,h7 {
 	border-left: 2px solid #000;
 	border-right: 2px solid #000;
 	background-color: #FFF;
-	background-image: url(../images/theme/georgewhitcher/wrapper_loop.jpg);
+	background-image: url(../../images/theme/default/wrapper_loop.jpg);
 	height: auto;
 }
 
@@ -93,10 +93,10 @@ header h2 {
 	float:left;
 }
 #nav_left{
-	background:url(../images/theme/georgewhitcher/menu_left.jpg) top left no-repeat;
+	background:url(../../images/theme/default/menu_left.jpg) top left no-repeat;
 }
 #nav_right{
-	background:url(../images/theme/georgewhitcher/menu_right.jpg) top left no-repeat;
+	background:url(../../images/theme/default/menu_right.jpg) top left no-repeat;
 }
 nav ul {
 	padding: 0px;
@@ -107,7 +107,7 @@ nav{
 	height:66px;
 	width:956px;
 	float:left;
-	background:url(../images/theme/georgewhitcher/menu_loop.jpg) top left repeat;
+	background:url(../../images/theme/default/menu_loop.jpg) top left repeat;
 	padding:0;
 	margin:0;
 	list-style:none;
@@ -116,7 +116,7 @@ nav li{
 	float:left;
 	height:66px;
 	padding:0px 2px 0px 0px;
-	background:url(../images/theme/georgewhitcher/menu_divider.jpg) top right no-repeat;
+	background:url(../../images/theme/default/menu_divider.jpg) top right no-repeat;
 	
 }
 nav li a{
@@ -130,7 +130,7 @@ nav li a{
 	padding:20px 20px 0px 20px;
 	text-decoration:none;
 	text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
-	background:url(../images/theme/georgewhitcher/menu_hover.png) top left repeat-x;
+	background:url(../../images/theme/default/menu_hover.png) top left repeat-x;
 }
 nav li a:hover{
 	text-shadow: 0px 2px 3px rgba(0, 0, 0, 1);
@@ -145,7 +145,7 @@ nav li ul {
 	position:absolute;
 	z-index:9999;
 	visibility:hidden;
-	background:url(../images/theme/georgewhitcher/wrapper_loop.jpg) repeat top left #1c1c1c;
+	background:url(../../images/theme/default/wrapper_loop.jpg) repeat top left #1c1c1c;
 	border:5px solid #212121;
 	margin:0;
 	padding:5px 0px 5px 0px;
@@ -159,7 +159,7 @@ nav li ul li {
 	margin:0px 10px 0px 10px;
 	padding:0;
 	float:none;
-	background:url(../images/theme/georgewhitcher/menu_drop.jpg) bottom left repeat-x;
+	background:url(../../images/theme/default/menu_drop.jpg) bottom left repeat-x;
 }
 nav li ul li.drop_last{
 	background:none;
@@ -200,7 +200,7 @@ nav li ul li a:hover {
 
 #full_page_wrapper {
 	border-top:1px solid #263946;
-	background:url(../images/theme/georgewhitcher/full_page_wrapper_loop.png) repeat-y top left;
+	background:url(../../images/theme/default/full_page_wrapper_loop.png) repeat-y top left;
 	-moz-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	-webkit-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -230,7 +230,7 @@ nav li ul li a:hover {
 	float: left;
 	width:625px;
 	border-top:1px solid #263946;
-	background:url(../images/theme/georgewhitcher/lwrapper_loop.png) repeat-y top left;
+	background:url(../../images/theme/default/lwrapper_loop.png) repeat-y top left;
 	-moz-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	-webkit-box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
 	box-shadow: 5px 0px 5px 0px rgba(0, 0, 0, 0.75);
@@ -251,7 +251,7 @@ nav li ul li a:hover {
 	font-weight:700;
 	text-transform:uppercase;
 	padding:7px 0px 10px 25px;
-	background:url(../images/theme/georgewhitcher/hbullet.png) left top no-repeat;
+	background:url(../../images/theme/default/hbullet.png) left top no-repeat;
 	margin:0px 0px 0px 0px;
 	clear: both;
 }
@@ -270,7 +270,7 @@ nav li ul li a:hover {
 }
 
 #right_wrapper .header {
-	background:url(../images/theme/georgewhitcher/right_h_bg.png) top left no-repeat;
+	background:url(../../images/theme/default/right_h_bg.png) top left no-repeat;
 	height: 40px;
 }
 
@@ -287,7 +287,7 @@ nav li ul li a:hover {
 #right_wrapper .footer {
 	width:330px;
 	height:16px;
-	background:url(../images/theme/georgewhitcher/footer.png) top left repeat-x;
+	background:url(../../images/theme/default/footer.png) top left repeat-x;
 	float:left;
 }
 
@@ -316,7 +316,7 @@ nav li ul li a:hover {
 	width:311px;
 	height:26px;
 	padding:10px 0px 0px 20px;
-	background:url(../images/theme/georgewhitcher/categories_bg.jpg) top left no-repeat;
+	background:url(../../images/theme/default/categories_bg.jpg) top left no-repeat;
 	transition:color 0.35s ease-in-out;
 	/* Firefox 4 */
 	-moz-transition:color 0.35s ease-in-out;
@@ -349,15 +349,10 @@ article {
 	background:#fff;
 	border:3px solid #25394a;
 	border-radius: 10px;
-	margin:0px 0px 30px 0px;
+	margin:15px 15px 30px 15px;
 	-webkit-box-shadow:  0px 2px 5px 2px rgba(0, 0, 0, 0.5);  
     box-shadow:  0px 2px 5px 2px rgba(0, 0, 0, 0.5);
-	margin: 15px;
-	padding: 15px;
-}
-
-article .featuredimg {
-	width: 565px;
+	padding: 15px 15px 15px 15px;
 }
 
 article h2 {
@@ -384,7 +379,7 @@ article h2 a:hover, article a:hover {
 }
 
 article img {
-	max-width: 565px;
+	max-width: 560px;
 }
 
 #share {
@@ -525,8 +520,9 @@ article img {
 }
 
 section {
-	background:url(../images/theme/georgewhitcher/rwrapper_loop.png) repeat-y top right;
+	background:url(../../images/theme/default/rwrapper_loop.png) repeat-y top right;
 	border-right:1px solid #333;
+	border-top: 1px solid #264a64;
 	overflow: hidden;
 	height: auto;
 	clear: both;
@@ -535,7 +531,7 @@ section {
 .bottom_shadow {
 	width:960px;
 	height:1px;
-	background:url(../images/theme/georgewhitcher/bottom_shadow.png) no-repeat top left;
+	background:url(../../images/theme/default/bottom_shadow.png) no-repeat top left;
 	margin:0px 0px 0px 0px;
 	position: relative;
 	right: -1px;
@@ -561,7 +557,7 @@ footer {
 	vertical-align:top;
 	width: 320px;
 	float: left;
-	background:url(../images/theme/georgewhitcher/box_text_bg.png) top left repeat-x;
+	background:url(../../images/theme/default/box_text_bg.png) top left repeat-x;
 	min-height: 160px;
 }
 .footer_widget .widget_header {
@@ -574,7 +570,7 @@ footer {
 
 .footer_bottom {
 	height:16px;
-	background:url(../images/theme/georgewhitcher/footer_bottom.jpg) top left repeat-x;
+	background:url(../../images/theme/default/footer_bottom.jpg) top left repeat-x;
 	width: 100%;
 	clear:both;
 }
@@ -609,7 +605,7 @@ footer {
 	background-image: linear-gradient(left, #162028, #171717);
 }
 #search input[type="submit"]{
-	background:url(../images/theme/georgewhitcher/search.jpg) top left no-repeat;
+	background:url(../../images/theme/default/search.jpg) top left no-repeat;
 	cursor:pointer;
 	border:none;	
 	width:23px;
