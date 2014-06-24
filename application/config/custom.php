@@ -8,8 +8,8 @@
 */
 $config['title'] = 'Codeigniter Blog Project';
 $config['sub_title'] = 'Developed by George Whitcher';
-$config['metadescription'] = 'A blog project build in the Codeigniter framework.';
-$config['metakeywords'] = 'Codeigniter, Blog, News, Open Source';
+$config['metadescription'] = 'A blog project built in the Codeigniter framework by George Whitcher.';
+$config['metakeywords'] = 'Codeigniter, Blog, News, Open Source, George Whitcher';
 $config['version'] = '2.0';
 $config['copyrightyear'] = '2013';
 $config['adminemail'] = 'admin@admin.com';

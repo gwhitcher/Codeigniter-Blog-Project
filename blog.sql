@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2014 at 08:22 PM
+-- Generation Time: Jun 25, 2014 at 12:02 AM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -217,8 +217,8 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `title`, `slug`, `metadescription`, `metakeywords`) VALUES
-(1, 'Projects', 'projects', '', ''),
-(2, 'Portfolio', 'portfolio', '', '');
+(1, 'Projects', 'projects', 'Projects by George Whitcher.', 'open source php projects, george whitcher, php'),
+(2, 'Portfolio', 'portfolio', 'Portfolio of George Whitcher.', 'web developer, boston, php developer, george whitcher');
 
 -- --------------------------------------------------------
 
@@ -284,7 +284,7 @@ CREATE TABLE IF NOT EXISTS `sidebar` (
 
 INSERT INTO `sidebar` (`id`, `title`, `body`, `position`) VALUES
 (1, 'Categories', '<ul>\r\n<?php\r\n$query = $this->db->query("SELECT * FROM categories");\r\n\r\nforeach ($query->result_array() as $row)\r\n{\r\n   echo ''<li><a href="''.base_url().''category/''.$row[''slug''].''">''.$row[''title''].''</a></li>'';\r\n}\r\n?>\r\n</ul>', 2),
-(2, 'Search', '<form method="post" action="<?php echo base_url(); ?>search">\r\n<div id="search">\r\n<input type="text" onblur="if(this.value =='''') this.value=''search''" onfocus="if (this.value == ''search'') this.value=''''" value="search" name="s" class="required" id="s" />\r\n<input type="button" />\r\n</div>\r\n</form>', 1);
+(2, 'Search', '<form method="post" action="<?php echo base_url(); ?>search">\r\n<div id="search">\r\n<input type="text" onblur="if(this.value =='''') this.value=''search''" onfocus="if (this.value == ''search'') this.value=''''" value="search" name="s" class="required" id="s" />\r\n</div>\r\n</form>', 1);
 
 -- --------------------------------------------------------
 
