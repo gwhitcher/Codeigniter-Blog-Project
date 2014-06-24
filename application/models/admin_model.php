@@ -91,8 +91,6 @@ class Admin_model extends CI_Model
 	$slug = url_title($this->input->post('title'),'dash',TRUE);
 	$config['upload_path'] = './images/posts/';
 	$config['allowed_types'] = 'gif|jpg|png';
-	$config['max_width'] = '600';
-	$config['max_height'] = '200';
 	$this->upload->initialize($config); 
 	$this->upload->do_upload('featured');
 	$image_data = $this->upload->data();
@@ -133,8 +131,6 @@ class Admin_model extends CI_Model
 	$slug = url_title($this->input->post('title'),'dash',TRUE);
 	$config['upload_path'] = './images/posts/';
 	$config['allowed_types'] = 'gif|jpg|png';
-	$config['max_width'] = '600';
-	$config['max_height'] = '200';
 	$this->upload->initialize($config); 
 	$this->upload->do_upload('featured');
 	$image_data = $this->upload->data();

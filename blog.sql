@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 16, 2014 at 09:41 PM
--- Server version: 5.6.14
--- PHP Version: 5.5.6
+-- Generation Time: Jun 24, 2014 at 08:22 PM
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -36,6 +36,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `featured` text NOT NULL,
   `metadescription` text NOT NULL,
   `metakeywords` text NOT NULL,
+  `slider` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
@@ -43,8 +44,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
 -- Dumping data for table `articles`
 --
 
-INSERT INTO `articles` (`id`, `category_id`, `title`, `date`, `slug`, `body`, `featured`, `metadescription`, `metakeywords`) VALUES
-(1, 1, 'Codeigniter Blog Project BETA 1.0', '0000-00-00', 'codeigniter-blog-project-beta-10', '<p>Hello everyone and welcome to my blog!  My name is George Whitcher and I have been working as a full-time web developer since 2006.  This blog post is introducing my blog as well as my blog software written in PHP and the Codeigniter framework which this blog is run on.</p><p>I started this project as while I like the content management systems out there like Wordpress and Joomla, why rely on them when you don''t have too? &nbsp;I also feel I can build something better over time. &nbsp;So stay tuned to the bitbucket provided below for the latest updates. &nbsp;I will try to keep the demo up to date as possible.</p><h1>Codeigniter Blog Project</h1><p>A blogging platform written in PHP in the Codeigniter framework by George Whitcher. &nbsp;</p><p>Setup the blog by going to /application/config/config.php and filling in all the necessary values as well as /application/config/database.php. &nbsp;</p><p>Import blog.sql to the database you configured. &nbsp;</p><p>CHMOD the /captcha/ and /images/* directories to 777 and you are all set!</p><p>Demo: <a href="http://blog.georgewhitcher.com" title="Codeigniter Blog" target="_blank">blog.georgewhitcher.com</a><br>Admin: <a href="http://blog.georgewhitcher.com/admin" title="Codeigniter Blog" target="_blank">blog.georgewhitcher.com/admin</a><br>UN: admin<br>PW: administrator</p><p><br></p>', 'codeigniter1.jpg', '1', '');
+INSERT INTO `articles` (`id`, `category_id`, `title`, `date`, `slug`, `body`, `featured`, `metadescription`, `metakeywords`, `slider`) VALUES
+(1, 1, 'Codeigniter Blog Project', '2014-06-24T20:17:34+02:00', 'codeigniter-blog-project', '<p>Thank you for installing the Codeigniter Blog Project! &nbsp;Please login to the administration by using the username: admin and the password: adminstrator. &nbsp;If you use this project please make sure and give the project credit. &nbsp;It is open source and it can only get popular if you let it!</p>', 'cover.png', 'Codeigniter Blog Project developed by George Whitcher.', 'codeigniter, open source, blog,', 1);
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=107 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=129 ;
 
 --
 -- Dumping data for table `captcha`
@@ -171,7 +172,29 @@ INSERT INTO `captcha` (`captcha_id`, `captcha_time`, `ip_address`, `word`) VALUE
 (103, 1389902300, 'fe80::6168:9f8b:', 'aDh6e1cn'),
 (104, 1389904464, 'fe80::6168:9f8b:', 'sz7fPlBq'),
 (105, 1389904585, 'fe80::6168:9f8b:', 'w8RJO34G'),
-(106, 1389904832, 'fe80::6168:9f8b:', 'Mp32yYc9');
+(106, 1389904832, 'fe80::6168:9f8b:', 'Mp32yYc9'),
+(107, 1392242133, 'fe80::6168:9f8b:', '0Y5lx8zb'),
+(108, 1393017676, 'fe80::6168:9f8b:', '7AnQMh7h'),
+(109, 1394644507, 'fe80::6168:9f8b:', '2YOBhg2P'),
+(110, 1394644577, 'fe80::6168:9f8b:', 'VUf6xQQr'),
+(111, 1394644609, 'fe80::6168:9f8b:', 'FCQC5lU7'),
+(112, 1394644631, 'fe80::6168:9f8b:', 'yVEvtxQU'),
+(113, 1394644665, 'fe80::6168:9f8b:', 'qEpHzJi8'),
+(114, 1394644813, 'fe80::6168:9f8b:', '6nKbZgJk'),
+(115, 1394644971, 'fe80::6168:9f8b:', 'SBjSLyFL'),
+(116, 1394644999, 'fe80::6168:9f8b:', 'ZhzQw3Mg'),
+(117, 1394645077, 'fe80::6168:9f8b:', 'qf8FMSrm'),
+(118, 1394645100, 'fe80::6168:9f8b:', '98g0re9Q'),
+(119, 1394645166, 'fe80::6168:9f8b:', 'jETbNA9Z'),
+(120, 1394645194, 'fe80::6168:9f8b:', 'UXIh0mXr'),
+(121, 1394645219, 'fe80::6168:9f8b:', 'yu3uhVKE'),
+(122, 1394645248, 'fe80::6168:9f8b:', 'b13ogTFL'),
+(123, 1394742356, 'fe80::5c4:7336:8', 'bDZwBjVh'),
+(124, 1394744508, 'fe80::5c4:7336:8', 'ZVq1M2LN'),
+(125, 1394744594, 'fe80::5c4:7336:8', 'azzPpEN1'),
+(126, 1395665381, 'fe80::6168:9f8b:', 'yA19ajr6'),
+(127, 1395665909, 'fe80::6168:9f8b:', 'M6gxhQyB'),
+(128, 1403633879, '127.0.0.1', 'gfnHBaj1');
 
 -- --------------------------------------------------------
 
@@ -238,14 +261,7 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `body` text NOT NULL,
   UNIQUE KEY `id_2` (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `pages`
---
-
-INSERT INTO `pages` (`id`, `title`, `slug`, `metadescription`, `metakeywords`, `body`) VALUES
-(1, 'About', 'about', 'About the Codeigniter Blog Project written by Web Developer George Whitcher', 'Codeigniter, Blog, PHP, Open Source', '<p><?php echo $this->config->item(''title''); ?> is a blogging software built in PHP with  the <a href="http://ellislab.com/codeigniter" target="_blank">Codeigniter</a> framework by Web Developer <a href="http://www.georgewhitcher.com" target="_blank">George Whitcher</a>.</p>');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -260,15 +276,15 @@ CREATE TABLE IF NOT EXISTS `sidebar` (
   `position` int(11) NOT NULL,
   UNIQUE KEY `id_2` (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `sidebar`
 --
 
 INSERT INTO `sidebar` (`id`, `title`, `body`, `position`) VALUES
-(1, 'Categories', '<?php\r\n$query = $this->db->query("SELECT * FROM categories");\r\n\r\nforeach ($query->result_array() as $row)\r\n{\r\n   echo ''<li><a href="''.base_url().''category/''.$row[''slug''].''">''.$row[''title''].''</a></li>'';\r\n}\r\n?>', 2),
-(2, 'Search', '<form method="post" action="<?php echo base_url(); ?>search">\r\n<input name="search" type="text">\r\n<input name="submit" type="submit" value="Search">\r\n</form>', 1);
+(1, 'Categories', '<ul>\r\n<?php\r\n$query = $this->db->query("SELECT * FROM categories");\r\n\r\nforeach ($query->result_array() as $row)\r\n{\r\n   echo ''<li><a href="''.base_url().''category/''.$row[''slug''].''">''.$row[''title''].''</a></li>'';\r\n}\r\n?>\r\n</ul>', 2),
+(2, 'Search', '<form method="post" action="<?php echo base_url(); ?>search">\r\n<div id="search">\r\n<input type="text" onblur="if(this.value =='''') this.value=''search''" onfocus="if (this.value == ''search'') this.value=''''" value="search" name="s" class="required" id="s" />\r\n<input type="button" />\r\n</div>\r\n</form>', 1);
 
 -- --------------------------------------------------------
 

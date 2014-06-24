@@ -50,7 +50,8 @@
 	<ul>
 	<li><a href="<?php echo base_url(); ?>admin/add_sidebar">Add Sidebar</a></li>
     </ul>
-</li> 
+</li>
+<li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
 </ul>
 </nav>
 <section>
